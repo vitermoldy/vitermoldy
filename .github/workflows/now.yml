@@ -1,0 +1,31 @@
+name: Last push line
+
+on:
+  schedule:
+    - cron: '0 17 * * *' # every day at 00:00 in Jakarta (UTC+7)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/now.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit when the line changed
+        run: |
+          if git diff --quiet README.md; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "docs: update the last push line"
+          git push
