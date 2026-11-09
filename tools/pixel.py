@@ -759,11 +759,98 @@ def room():
     write('room.svg', document(W, H, 4, title, body, ''.join(css)))
 
 
+# ---------------------------------------------------------------- the character in the field
+def character():
+    """The sunset field from before, with the character the owner chose in front of it: a pixel-art girl
+    with long light-blue hair (not drawn for this profile; credit pending). Her picture is brought back to
+    its own pixel grid (128 x 127) and cut out of its flat background in tools/src/character-cutout.png.
+    Clouds drift, two birds cross, petals blow past behind and in front of her, and she breathes."""
+    W, H = 128, 96
+    rnd = random.Random(33)
+    HORIZON = 70
+    PINK = '#f2a38a'
+    sky = [(0, INK), (12, INK2), (24, '#4a2f2a'), (35, '#8a3b26'), (45, ACCENT), (55, WARM), (63, SOFT)]
+    base = Canvas()
+    for y in range(HORIZON):                                 # sunset sky in dithered bands
+        band = max(i for i, (top, _) in enumerate(sky) if y >= top)
+        col = sky[band][1]
+        if band + 1 < len(sky) and sky[band + 1][0] - y <= 2:
+            nxt = sky[band + 1][1]
+            for x in range(W):
+                base.set(x, y, nxt if (x + y) % 2 == 0 else col)
+        else:
+            base.rect(0, y, W, 1, col)
+    for y in range(-13, 1):                                  # the sun, half down
+        for x in range(-13, 14):
+            d = x * x + y * y
+            if d <= 169:
+                base.set(21 + x, HORIZON + y, HOT if d <= 100 else PAPER if d <= 132 else SOFT)
+    clouds = Canvas()
+    for cx, cy, w in ((20, 30, 22), (70, 22, 30), (104, 38, 18), (52, 44, 16)):
+        clouds.rect(cx, cy, w, 1, blend(SOFT, '#8a3b26', 0.55))
+        clouds.rect(cx + 3, cy - 1, w - 8, 1, blend(SOFT, '#8a3b26', 0.4))
+    for x in range(W):                                       # far hills and firs
+        h = 3 + round(2 * math.sin(x / 9) + 1.5 * math.sin(x / 4.1))
+        base.rect(x, HORIZON - h, 1, h, FAR)
+    for x in range(2, W, 5):
+        pine(base, x, HORIZON, 4 + rnd.randrange(0, 4), COLD)
+    base.rect(0, HORIZON, W, H - HORIZON, MID)               # the field, flowers denser towards the front
+    for y in range(HORIZON, H):
+        for x in range(W):
+            r = rnd.random()
+            depth = (y - HORIZON) / (H - HORIZON)
+            if r < 0.10:
+                base.set(x, y, LEAF)
+            elif r < 0.13:
+                base.set(x, y, COLD)
+            elif r < 0.13 + 0.10 * depth:
+                base.set(x, y, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
+    front = Canvas()
+    for x in range(0, 40, 2):                                # tall flowers in front, left of her
+        if rnd.random() < 0.6:
+            h = rnd.randrange(3, 8)
+            front.rect(x, H - h, 1, h, LEAF if rnd.random() < 0.5 else MID)
+            front.set(x, H - h - 1, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
+    birds = Canvas()
+    for bx, by in ((10, 18), (20, 22)):
+        for q in ((0, 0), (1, 1), (2, 0), (3, 1), (4, 0)):
+            birds.set(bx + q[0], by + q[1], INK)
+    petal_back, petal_front, css = [], [], []
+    for i in range(16):
+        x, y = rnd.randrange(30, W + 40), rnd.randrange(-10, 70)
+        cv = Canvas()
+        cv.rect(x, y, 2 if i % 3 else 1, 1, rnd.choice([PINK, PAPER, SOFT, ACCENT]))
+        dur = 7 + (i % 5) * 1.3
+        (petal_front if i % 3 == 0 else petal_back).append(cv.svg(f'pt pt{i}'))
+        css.append(f'.pt{i}{{animation:pt {dur:.1f}s steps({int(dur * 20)}) {-rnd.random() * dur:.1f}s infinite}}')
+
+    # her picture: native pixels, blown up with hard edges so the browser keeps them square
+    cut = Image.open(SRC / 'character-cutout.png').convert('RGBA')
+    big = cut.resize((cut.width * 4, cut.height * 4), Image.NEAREST)
+    buf = io.BytesIO()
+    big.save(buf, 'PNG', optimize=True)
+    href = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode()
+    gw = 100  # big enough that the picture's cut-off top sits above the frame
+    gh = round(gw * cut.height / cut.width, 2)
+    girl = (f'<g class="girl"><image href="{href}" x="34" y="{H - gh + 0.6:.2f}" width="{gw}" height="{gh}" '
+            f'preserveAspectRatio="none" image-rendering="pixelated"/></g>')
+
+    body = base.svg() + clouds.svg('cl') + birds.svg('bd') + ''.join(petal_back) + girl + front.svg() + ''.join(petal_front)
+    css += ['.cl{animation:cl 40s steps(40) infinite}@keyframes cl{50%{transform:translateX(-20px)}}',
+            '.bd{animation:bd 16s steps(160) infinite}@keyframes bd{from{transform:translate(-30px,6px)}to{transform:translate(130px,-6px)}}',
+            '@keyframes pt{from{transform:translate(0,0)}to{transform:translate(-150px,52px)}}',
+            '.girl{animation:br 2.4s steps(1) infinite}@keyframes br{50%{transform:translateY(.5px)}}']
+    title = ('Pixel art: an anime girl with long light-blue hair, a black bow and a sailor uniform, in front of a flower '
+             'field at sunset; petals drift past and two birds cross the sky.')
+    write('character.svg', document(W, H, 4, title, body, ''.join(css)))
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     print('drawing')
     banner()
     room()
+    character()
     # a transparent strip, 100% wide: placed after a floated picture it can never fit beside it, so the next
     # section always starts below the picture (GitHub strips the clear attribute from <br>)
     write('clear.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 1" width="8" height="1" aria-hidden="true"/>')
