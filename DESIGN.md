@@ -31,7 +31,7 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 
 | Piece | Source |
 | --- | --- |
-| Banner, the room, section headers, pixel face, project cards, footer | Drawn by `tools/pixel.py` into `assets/pixel/` |
+| Banner, the room, the character in the field, section headers, project cards, footer | Drawn by `tools/pixel.py` into `assets/pixel/` |
 | Creative skill badges (photography, event organizer, multimedia) | shields.io with small icons drawn for them (simple-icons has none) |
 | Typing line | readme-typing-svg (demolab), in Tiny5, yellow in dark mode and green in light mode |
 | Visitor counter | komarev, as GPRM uses it |
@@ -41,14 +41,19 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 | Pac-Man graph | `.github/workflows/pacman.yml`, published to the `output` branch |
 
 The banner is StudyCabin at night as pixel art (lit glass cabin, chimney smoke, aurora, stars, a doe by the pond,
-fireflies). The face is PixelFolio's own pixel face (same shape, eyes, smile and rising heart). The project cards show
+fireflies). The project cards show
 the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, so its card is a drawn pixel map.
 
 The room is original pixel art in the spirit of the owner's reference (a pixel gamer room), with no characters from
-existing games: the owner from behind at his desk, code on the main screen, a video edit on the second, a photo grid
+existing games: the owner from behind at the desk, code on the main screen, a video edit on the second, a photo grid
 on the laptop, a camera on a tripod, a softbox, an event staff pass, a StudyCabin poster and PixelFolio's face on
 the shelf. Its neon sign changes every 2.5 seconds between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT
 ORGANIZER and MULTIMEDIA, each in its own colour.
+
+In About, the same person from the room stands in a flower field at sunset, photographing it, while the wind
+lifts the hair, the hood and the camera strap and petals and birds cross the sky. It floats to the right of the list;
+a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
+because GitHub removes the `clear` attribute from `<br>`.
 
 Checked on 10 November 2026: the public github-readme-stats, activity-graph and trophy servers were down, so none of
 them is used.
@@ -64,7 +69,7 @@ so these are kept on purpose (antislop R-37):
 - pictures without a `height` attribute: with one, GitHub's stylesheet stretches them on a phone (antislop R-40).
 
 Still held: every number comes from GitHub itself, every tool listed is used in a public repository, every link was
-checked, every picture has alt text, and no text was invented about the owner beyond the About list, which is his to
+checked, every picture has alt text, and no text was invented about the owner beyond the About list, which the owner should
 confirm.
 
 ## Rebuild
