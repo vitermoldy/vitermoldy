@@ -760,11 +760,23 @@ def room():
 
 
 # ---------------------------------------------------------------- the character in the field
+def hair_colours(img):
+    """The three hair tones of the picture (dark, mid, light), taken from its most common purple-pink pixels."""
+    from collections import Counter
+    counts = Counter()
+    for r, gr, b, a in img.getdata():
+        if a and r > gr + 30 and b > gr + 10:
+            counts[(r // 8 * 8, gr // 8 * 8, b // 8 * 8)] += 1
+    tones = sorted((c for c, _ in counts.most_common(6)), key=lambda c: sum(c))
+    hexes = ['#%02x%02x%02x' % c for c in tones]
+    return hexes[0], hexes[len(hexes) // 2], hexes[-1]
+
+
 def character():
-    """The sunset field from before, with the character the owner chose in front of it: a pixel-art girl
-    with long light-blue hair (not drawn for this profile; credit pending). Her picture is brought back to
-    its own pixel grid (128 x 127) and cut out of its flat background in tools/src/character-cutout.png.
-    Clouds drift, two birds cross, petals blow past behind and in front of her, and she breathes."""
+    """The sunset field with the character the owner chose standing in it: a chibi pixel girl with long
+    magenta hair (not drawn for this profile; credit pending), brought back to her own pixel grid (78 x 109)
+    and cut out of her white background (tools/src/chibi-cutout.png). The wind blows to the right: extra
+    strands drawn in her own hair colours stream out to the right, and petals and clouds go the same way."""
     W, H = 128, 96
     rnd = random.Random(33)
     HORIZON = 70
@@ -780,13 +792,13 @@ def character():
                 base.set(x, y, nxt if (x + y) % 2 == 0 else col)
         else:
             base.rect(0, y, W, 1, col)
-    for y in range(-13, 1):                                  # the sun, half down
+    for y in range(-13, 1):                                  # the sun, half down, on the right
         for x in range(-13, 14):
             d = x * x + y * y
             if d <= 169:
-                base.set(21 + x, HORIZON + y, HOT if d <= 100 else PAPER if d <= 132 else SOFT)
+                base.set(104 + x, HORIZON + y, HOT if d <= 100 else PAPER if d <= 132 else SOFT)
     clouds = Canvas()
-    for cx, cy, w in ((20, 30, 22), (70, 22, 30), (104, 38, 18), (52, 44, 16)):
+    for cx, cy, w in ((14, 30, 22), (62, 22, 30), (96, 38, 18), (44, 44, 16)):
         clouds.rect(cx, cy, w, 1, blend(SOFT, '#8a3b26', 0.55))
         clouds.rect(cx + 3, cy - 1, w - 8, 1, blend(SOFT, '#8a3b26', 0.4))
     for x in range(W):                                       # far hills and firs
@@ -805,10 +817,56 @@ def character():
                 base.set(x, y, COLD)
             elif r < 0.13 + 0.10 * depth:
                 base.set(x, y, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
+
+    # where she stands: half a scene unit per pixel of hers, feet in the grass
+    cut = Image.open(SRC / 'chibi-cutout.png').convert('RGBA')
+    S = 0.5
+    GX, GY = 22.0, 92 - cut.height * S
+    for x in range(-11, 12):                                 # her shadow on the grass
+        for y in (-1, 0, 1):
+            if (x / 11) ** 2 + (y / 1.6) ** 2 <= 1:
+                base.set(round(GX + 39 * S) + x, 92 + y, COLD)
+
+    dark, mid, light = hair_colours(cut)
+
+    def strands(phase, front=False):
+        """Hair blown out to the right, in her own pixel grid: thick at the root, thin at the tip, a wave
+        that grows towards the tip and travels outwards, a darker edge underneath."""
+        cv = Canvas()
+        if front:
+            roots = [(50, 15, -6), (53, 19, 2)]
+        else:
+            roots = [(58 + k % 3, 12 + round(k * 2.6), 2 + k * 1.4) for k in range(22)]
+        for k, (sx, sy, deg) in enumerate(roots):
+            theta = math.radians(deg)
+            length = (34 + (k * 5) % 18) if not front else 24
+            for t in range(length):
+                amp = 0.3 + t * 0.07
+                wav = amp * math.sin(t * 0.2 - phase + k * 0.45)
+                x = sx + t * math.cos(theta) - wav * math.sin(theta)
+                y = sy + t * math.sin(theta) + wav * math.cos(theta) + t * t * 0.0025
+                width = 3 if t < length * 0.5 else 2 if t < length - 6 else 1
+                shine = k % 6 == 2 and length * 0.2 < t < length * 0.6
+                cv.rect(round(x), round(y), width, 1, light if shine else mid)
+                cv.set(round(x) + width - 1, round(y) + 1, dark)
+        return cv
+
+    def placed(cv, cls):
+        return f'<g class="{cls}" transform="translate({GX} {GY}) scale({S})">{cv.svg()}</g>'
+
+    back = [placed(strands(p), f'wf wf{i}') for i, p in enumerate((0.0, 2.1, 4.2))]
+    fore = [placed(strands(p, True), f'wf wf{i}') for i, p in enumerate((0.0, 2.1, 4.2))]
+    big = cut.resize((cut.width * 4, cut.height * 4), Image.NEAREST)
+    buf = io.BytesIO()
+    big.save(buf, 'PNG', optimize=True)
+    href = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode()
+    girl = (f'<image href="{href}" x="{GX}" y="{GY}" width="{cut.width * S}" height="{cut.height * S}" '
+            f'preserveAspectRatio="none" image-rendering="pixelated"/>')
+
     front = Canvas()
-    for x in range(0, 40, 2):                                # tall flowers in front, left of her
-        if rnd.random() < 0.6:
-            h = rnd.randrange(3, 8)
+    for x in range(0, W, 2):                                 # tall flowers in front
+        if rnd.random() < 0.55:
+            h = rnd.randrange(2, 6)
             front.rect(x, H - h, 1, h, LEAF if rnd.random() < 0.5 else MID)
             front.set(x, H - h - 1, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
     birds = Canvas()
@@ -817,31 +875,24 @@ def character():
             birds.set(bx + q[0], by + q[1], INK)
     petal_back, petal_front, css = [], [], []
     for i in range(16):
-        x, y = rnd.randrange(30, W + 40), rnd.randrange(-10, 70)
+        x, y = rnd.randrange(-40, W - 30), rnd.randrange(-10, 70)
         cv = Canvas()
-        cv.rect(x, y, 2 if i % 3 else 1, 1, rnd.choice([PINK, PAPER, SOFT, ACCENT]))
+        cv.rect(x, y, 2 if i % 3 else 1, 1, rnd.choice([PINK, PAPER, SOFT, ACCENT, light]))
         dur = 7 + (i % 5) * 1.3
         (petal_front if i % 3 == 0 else petal_back).append(cv.svg(f'pt pt{i}'))
         css.append(f'.pt{i}{{animation:pt {dur:.1f}s steps({int(dur * 20)}) {-rnd.random() * dur:.1f}s infinite}}')
 
-    # her picture: native pixels, blown up with hard edges so the browser keeps them square
-    cut = Image.open(SRC / 'character-cutout.png').convert('RGBA')
-    big = cut.resize((cut.width * 4, cut.height * 4), Image.NEAREST)
-    buf = io.BytesIO()
-    big.save(buf, 'PNG', optimize=True)
-    href = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode()
-    gw = 100  # big enough that the picture's cut-off top sits above the frame
-    gh = round(gw * cut.height / cut.width, 2)
-    girl = (f'<g class="girl"><image href="{href}" x="34" y="{H - gh + 0.6:.2f}" width="{gw}" height="{gh}" '
-            f'preserveAspectRatio="none" image-rendering="pixelated"/></g>')
-
-    body = base.svg() + clouds.svg('cl') + birds.svg('bd') + ''.join(petal_back) + girl + front.svg() + ''.join(petal_front)
-    css += ['.cl{animation:cl 40s steps(40) infinite}@keyframes cl{50%{transform:translateX(-20px)}}',
+    body = (base.svg() + clouds.svg('cl') + birds.svg('bd') + ''.join(petal_back) + ''.join(back)
+            + f'<g class="girl">{girl}</g>' + ''.join(fore) + front.svg() + ''.join(petal_front))
+    css += ['.wf1,.wf2{opacity:0}',
+            '.wf{animation:wf 1.5s steps(1) infinite}.wf1{animation-delay:-1s}.wf2{animation-delay:-.5s}',
+            '@keyframes wf{0%{opacity:1}33.33%,100%{opacity:0}}',
+            '.cl{animation:cl 40s steps(40) infinite}@keyframes cl{50%{transform:translateX(20px)}}',
             '.bd{animation:bd 16s steps(160) infinite}@keyframes bd{from{transform:translate(-30px,6px)}to{transform:translate(130px,-6px)}}',
-            '@keyframes pt{from{transform:translate(0,0)}to{transform:translate(-150px,52px)}}',
+            '@keyframes pt{from{transform:translate(0,0)}to{transform:translate(150px,52px)}}',
             '.girl{animation:br 2.4s steps(1) infinite}@keyframes br{50%{transform:translateY(.5px)}}']
-    title = ('Pixel art: an anime girl with long light-blue hair, a black bow and a sailor uniform, in front of a flower '
-             'field at sunset; petals drift past and two birds cross the sky.')
+    title = ('Pixel art: a chibi girl with long magenta hair, a white blouse, a pink sash and a navy skirt stands in a '
+             'flower field at sunset; the wind blows her hair to the right, petals drift past and two birds cross the sky.')
     write('character.svg', document(W, H, 4, title, body, ''.join(css)))
 
 
