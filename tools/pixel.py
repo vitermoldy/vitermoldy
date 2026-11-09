@@ -761,17 +761,17 @@ def room():
 
 # ---------------------------------------------------------------- the character in the field
 def character():
-    """The sunset field with the character the owner chose standing in it: a chibi pixel girl with long
-    magenta hair (not drawn for this profile; credit pending), brought back to her own pixel grid (78 x 109)
-    and cut out of her white background (tools/src/chibi-cutout.png). Petals and clouds drift to the right,
-    two birds cross the sky, and she breathes."""
+    """The owner's pixel self from the room, out in a flower field at sunset, photographing it.
+    Hair, hoodie strings and the camera strap move in the wind; petals and two birds cross the sky."""
     W, H = 128, 96
     rnd = random.Random(33)
     HORIZON = 70
-    PINK = '#f2a38a'
+    SKIN, PINK = '#e8c4a0', '#f2a38a'
     sky = [(0, INK), (12, INK2), (24, '#4a2f2a'), (35, '#8a3b26'), (45, ACCENT), (55, WARM), (63, SOFT)]
     base = Canvas()
-    for y in range(HORIZON):                                 # sunset sky in dithered bands
+
+    # sunset sky in dithered bands
+    for y in range(HORIZON):
         band = max(i for i, (top, _) in enumerate(sky) if y >= top)
         col = sky[band][1]
         if band + 1 < len(sky) and sky[band + 1][0] - y <= 2:
@@ -780,21 +780,24 @@ def character():
                 base.set(x, y, nxt if (x + y) % 2 == 0 else col)
         else:
             base.rect(0, y, W, 1, col)
-    for y in range(-13, 1):                                  # the sun, half down, on the right
+    for y in range(-13, 1):                                  # the sun, half down
         for x in range(-13, 14):
             d = x * x + y * y
             if d <= 169:
-                base.set(104 + x, HORIZON + y, HOT if d <= 100 else PAPER if d <= 132 else SOFT)
+                base.set(36 + x, HORIZON + y, HOT if d <= 100 else PAPER if d <= 132 else SOFT)
     clouds = Canvas()
-    for cx, cy, w in ((14, 30, 22), (62, 22, 30), (96, 38, 18), (44, 44, 16)):
+    for cx, cy, w in ((20, 30, 22), (70, 22, 30), (104, 38, 18), (52, 44, 16)):
         clouds.rect(cx, cy, w, 1, blend(SOFT, '#8a3b26', 0.55))
         clouds.rect(cx + 3, cy - 1, w - 8, 1, blend(SOFT, '#8a3b26', 0.4))
-    for x in range(W):                                       # far hills and firs
+    # far hills and trees on the horizon
+    for x in range(W):
         h = 3 + round(2 * math.sin(x / 9) + 1.5 * math.sin(x / 4.1))
         base.rect(x, HORIZON - h, 1, h, FAR)
     for x in range(2, W, 5):
         pine(base, x, HORIZON, 4 + rnd.randrange(0, 4), COLD)
-    base.rect(0, HORIZON, W, H - HORIZON, MID)               # the field, flowers denser towards the front
+
+    # the field, flowers denser towards the front
+    base.rect(0, HORIZON, W, H - HORIZON, MID)
     for y in range(HORIZON, H):
         for x in range(W):
             r = rnd.random()
@@ -806,50 +809,103 @@ def character():
             elif r < 0.13 + 0.10 * depth:
                 base.set(x, y, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
 
-    # where she stands: half a scene unit per pixel of hers, feet in the grass
-    cut = Image.open(SRC / 'chibi-cutout.png').convert('RGBA')
-    S = 0.5
-    GX, GY = 22.0, 92 - cut.height * S
-    for x in range(-11, 12):                                 # her shadow on the grass
-        for y in (-1, 0, 1):
-            if (x / 11) ** 2 + (y / 1.6) ** 2 <= 1:
-                base.set(round(GX + 39 * S) + x, 92 + y, COLD)
+    # the character, from behind: the same person as in the room (green hoodie, headphones round the neck),
+    # out in the field, taking a photo of the sunset with the camera raised to the eye
+    CX = 88
+    JEANS, SHOE = '#2a3a52', PAPER
+    body = Canvas()
+    for y in range(74, 89):                                  # jeans and sneakers
+        body.rect(CX - 5, y, 4, 1, JEANS)
+        body.rect(CX + 2, y, 4, 1, JEANS)
+    body.rect(CX - 6, 89, 5, 2, SHOE)
+    body.rect(CX + 2, 89, 5, 2, SHOE)
+    for y in range(49, 75):                                  # hoodie
+        half = (5, 7, 8, 9)[y - 49] if y < 53 else 9 if y < 72 else 8
+        body.rect(CX - half, y, half * 2 + 1, 1, MID)
+    for y in range(55, 72):                                  # back seam shading
+        body.set(CX - 6, y, COLD)
+        body.set(CX + 6, y, COLD)
+    body.rect(CX - 8, 72, 17, 2, COLD)                       # ribbed hem
+    for i, half in enumerate((4, 5, 5, 5, 4, 4, 3, 2, 1)):   # the hood, hanging down the back
+        body.rect(CX - half, 48 + i, half * 2 + 1, 1, LEAF)
+    body.rect(CX - 3, 48, 7, 1, COLD)                        # its opening, seen from above
+    for x, y in ((-6, 47), (-5, 48), (5, 48), (6, 47)):      # headphones round the neck
+        body.set(CX + x, y, ACCENT)
+    body.rect(CX - 7, 46, 2, 3, ACCENT)
+    body.rect(CX + 6, 46, 2, 3, ACCENT)
+    def limb(x0, y0, x1, y1, w, col):
+        n = max(abs(x1 - x0), abs(y1 - y0))
+        for i in range(n + 1):
+            x = round(x0 + (x1 - x0) * i / n)
+            y = round(y0 + (y1 - y0) * i / n)
+            body.rect(x - w // 2, y, w, 1, col)
 
-    big = cut.resize((cut.width * 4, cut.height * 4), Image.NEAREST)
-    buf = io.BytesIO()
-    big.save(buf, 'PNG', optimize=True)
-    href = 'data:image/png;base64,' + base64.b64encode(buf.getvalue()).decode()
-    girl = (f'<image href="{href}" x="{GX}" y="{GY}" width="{cut.width * S}" height="{cut.height * S}" '
-            f'preserveAspectRatio="none" image-rendering="pixelated"/>')
+    for side in (-1, 1):                                     # sleeves: elbows out, hands up at the camera
+        limb(CX + side * 8, 50, CX + side * 13, 56, 3, MID)
+        limb(CX + side * 13, 56, CX + side * 10, 47, 3, MID)
+        body.rect(CX + side * 13 - 1, 56, 3, 1, COLD)
+        body.rect(CX + side * 10 - 1, 45, 3, 2, SKIN)
+    for y in range(-6, 6):                                   # head: short hair
+        for x in range(-5, 6):
+            if (x / 5.2) ** 2 + (y / 6) ** 2 <= 1:
+                body.set(CX + x, 41 + y, INK)
+    body.rect(CX - 9, 41, 3, 5, INK2)                        # the camera, sticking out each side of the head
+    body.rect(CX + 7, 41, 3, 5, INK2)
+    body.rect(CX + 7, 40, 2, 1, MUTED)
+    body.set(CX + 8, 40, ACCENT)
 
+    def wind(phase):
+        cv = Canvas()
+        for i, (x, y) in enumerate(((-5, 37), (-6, 39), (-6, 41), (-6, 43), (-3, 35), (0, 34))):
+            if math.sin(phase + i * 1.3) > -0.2:             # short hair, a few strands lifted to the left
+                cv.set(CX + x - 1, y, INK)
+        for i in range(3):                                   # the hood's edge in the wind
+            cv.set(CX - 5 - (1 if math.sin(phase + i) > 0 else 0), 50 + i * 2, LEAF)
+        for t in range(12):                                  # camera strap
+            cv.set(CX - 9 - t + round(1.3 * math.sin(t * 0.6 + phase)), 46 + t, ACCENT)
+        for x in range(CX - 9, CX + 10):                     # hem flutter
+            if math.sin(x * 0.9 + phase * 2) > 0.4:
+                cv.set(x, 74, COLD)
+        return cv
+
+    frames = [wind(p) for p in (0.0, 2.1, 4.2)]
     front = Canvas()
-    for x in range(0, W, 2):                                 # tall flowers in front
-        if rnd.random() < 0.55:
-            h = rnd.randrange(2, 6)
+    for x in range(0, W, 2):                                 # tall flowers in front, over the feet
+        if rnd.random() < 0.6:
+            h = rnd.randrange(3, 8)
             front.rect(x, H - h, 1, h, LEAF if rnd.random() < 0.5 else MID)
             front.set(x, H - h - 1, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
-    birds = Canvas()
-    for bx, by in ((10, 18), (20, 22)):
-        for q in ((0, 0), (1, 1), (2, 0), (3, 1), (4, 0)):
-            birds.set(bx + q[0], by + q[1], INK)
-    petal_back, petal_front, css = [], [], []
-    for i in range(16):
-        x, y = rnd.randrange(-40, W - 30), rnd.randrange(-10, 70)
+
+    petals = Canvas()
+    petal_svg = []
+    for i in range(14):
+        x, y = rnd.randrange(30, W + 40), rnd.randrange(-10, 70)
         cv = Canvas()
         cv.rect(x, y, 2 if i % 3 else 1, 1, rnd.choice([PINK, PAPER, SOFT, ACCENT]))
         dur = 7 + (i % 5) * 1.3
-        (petal_front if i % 3 == 0 else petal_back).append(cv.svg(f'pt pt{i}'))
-        css.append(f'.pt{i}{{animation:pt {dur:.1f}s steps({int(dur * 20)}) {-rnd.random() * dur:.1f}s infinite}}')
+        petal_svg.append((cv.svg(f'pt pt{i}'), dur, -rnd.random() * dur))
+    birds = Canvas()
+    for bx, by in ((10, 18), (20, 22)):
+        for p in ((0, 0), (1, 1), (2, 0), (3, 1), (4, 0)):
+            birds.set(bx + p[0], by + p[1], INK)
 
-    body = (base.svg() + clouds.svg('cl') + birds.svg('bd') + ''.join(petal_back)
-            + f'<g class="girl">{girl}</g>' + front.svg() + ''.join(petal_front))
-    css += ['.cl{animation:cl 40s steps(40) infinite}@keyframes cl{50%{transform:translateX(20px)}}',
+    css = []
+
+    svg_body = base.svg() + clouds.svg('cl') + birds.svg('bd')
+    svg_body += body.svg() + ''.join(f.svg(f'wf wf{i}') for i, f in enumerate(frames)) + front.svg()
+    svg_body += ''.join(s for s, _, _ in petal_svg)
+    css += ['.wf1,.wf2{opacity:0}',
+            '.wf{animation:wf 1.8s steps(1) infinite}.wf1{animation-delay:-1.2s}.wf2{animation-delay:-.6s}',
+            '@keyframes wf{0%{opacity:1}33.33%,100%{opacity:0}}',
+            '.cl{animation:cl 40s steps(40) infinite}@keyframes cl{50%{transform:translateX(-20px)}}',
             '.bd{animation:bd 16s steps(160) infinite}@keyframes bd{from{transform:translate(-30px,6px)}to{transform:translate(130px,-6px)}}',
-            '@keyframes pt{from{transform:translate(0,0)}to{transform:translate(150px,52px)}}',
-            '.girl{animation:br 2.4s steps(1) infinite}@keyframes br{50%{transform:translateY(.5px)}}']
-    title = ('Pixel art: a chibi girl with long magenta hair, a white blouse, a pink sash and a navy skirt stands in a '
-             'flower field at sunset; petals drift past and two birds cross the sky.')
-    write('character.svg', document(W, H, 4, title, body, ''.join(css)))
+            '@keyframes pt{from{transform:translate(0,0)}to{transform:translate(-150px,52px)}}']
+    for i, (_, dur, delay) in enumerate(petal_svg):
+        css.append(f'.pt{i}{{animation:pt {dur:.1f}s steps({int(dur * 20)}) {delay:.1f}s infinite}}')
+    title = ('Pixel art: Viter in a green hoodie with headphones round the neck stands in a flower field at sunset, '
+             'seen from behind, photographing the sun; the wind lifts the hair, hoodie strings and camera strap, '
+             'petals drift past and two birds cross the sky.')
+    write('character.svg', document(W, H, 4, title, svg_body, ''.join(css)))
 
 
 def main():
