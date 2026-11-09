@@ -50,9 +50,9 @@ on the laptop, a camera on a tripod, a softbox, an event staff pass, a StudyCabi
 the shelf. Its neon sign changes every 2.5 seconds between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT
 ORGANIZER and MULTIMEDIA, each in its own colour.
 
-In About, the same person from the room stands in a flower field at sunset, photographing it, while the wind
-lifts the hair, the hood and the camera strap and petals and birds cross the sky. It floats to the right of the list;
-a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
+In About, an original character (a girl with long dark brown hair, a cream sweater, a green skirt and a camera) stands
+facing us in a flower field at sunset; the wind blows her hair out to the left, petals and birds cross the sky. It
+floats to the right of the list; a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
 because GitHub removes the `clear` attribute from `<br>`.
 
 Checked on 10 November 2026: the public github-readme-stats, activity-graph and trophy servers were down, so none of
