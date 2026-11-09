@@ -21,7 +21,7 @@
 
 <h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
 
-<img src="assets/pixel/character.svg" align="right" width="44%" alt="Pixel art: an anime girl with long light-blue hair, a black bow and a sailor uniform, in front of a flower field at sunset; petals drift past and two birds cross the sky.">
+<img src="assets/pixel/character.svg" align="right" width="44%" alt="Pixel art: a chibi girl with long magenta hair, a white blouse, a pink sash and a navy skirt stands in a flower field at sunset; the wind blows her hair to the right, petals drift past and two birds cross the sky.">
 <!-- Character art: not drawn for this profile. Add the artist's name and link here. -->
 
 - 🎓 **Information Technology** student
