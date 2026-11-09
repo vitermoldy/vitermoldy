@@ -15,6 +15,10 @@
   <img src="https://komarev.com/ghpvc/?username=vitermoldy&label=PROFILE+VIEWS&color=1f6e44&style=for-the-badge" alt="Profile views">
 </p>
 
+<p align="center">
+  <img src="assets/pixel/room.svg" width="100%" alt="Pixel art: Viter at his desk at night, coding on the main screen, a video edit on the second screen and a photo grid on the laptop, a camera on a tripod, a softbox, an event staff pass and a StudyCabin poster. A neon sign changes between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT ORGANIZER and MULTIMEDIA.">
+</p>
+
 <h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
 
 <table>
@@ -25,6 +29,7 @@
 - 🔭 Currently building **[StudyCabin v2](https://github.com/vitermoldy/StudyCabin-v2)**, a study room in a live 3D forest cabin
 - 🌱 Learning more **three.js**, **Laravel 12** and **Astro**
 - 👾 Into pixel art, cozy 3D scenes and the small details
+- 📸 Off the keyboard: photography, event organizing and multimedia
 - 💬 Ask me about three.js, Laravel, PHP and MySQL
 - ⚡ Fun fact: in StudyCabin a whole day lasts 24 minutes
 <!-- - 📍 Based in KOTA KAMU -->
@@ -37,7 +42,7 @@
 </tr>
 </table>
 
-<h2><img src="assets/pixel/h-tools.svg" height="40" alt="Languages and tools"></h2>
+<h2><img src="assets/pixel/h-tools.svg" height="40" alt="Skills and tools"></h2>
 
 <p align="center"><b>LANGUAGES</b></p>
 <p align="center">
@@ -71,6 +76,13 @@
   <img src="https://img.shields.io/badge/GitHub-0f3d2e?style=for-the-badge&logo=github&logoColor=fff36b" alt="GitHub">
   <img src="https://img.shields.io/badge/Docker-0f3d2e?style=for-the-badge&logo=docker&logoColor=fff36b" alt="Docker">
   <img src="https://img.shields.io/badge/Google_Cloud-0f3d2e?style=for-the-badge&logo=googlecloud&logoColor=fff36b" alt="Google Cloud">
+</p>
+
+<p align="center"><b>CREATIVE</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Photography-0f3d2e?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZjM2YiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiA3aDVsMi0zaDZsMiAzaDV2MTNIMnpNNy41IDEzLjVhNC41IDQuNSAwIDEgMCA5IDBhNC41IDQuNSAwIDEgMC05IDB6TTEwIDEzLjVhMiAyIDAgMSAwIDQgMGEyIDIgMCAxIDAtNCAweiIvPjwvc3ZnPg%3D%3D" alt="Photography">
+  <img src="https://img.shields.io/badge/Event_Organizer-0f3d2e?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZjM2YiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMyA1aDE4djE2SDN6TTUgMTBoMTR2OUg1ek03IDJoMnYzSDd6TTE1IDJoMnYzaC0yek04IDE0LjVsMS41LTEuNSAyIDIgNC00IDEuNSAxLjUtNS41IDUuNXoiLz48L3N2Zz4%3D" alt="Event Organizer">
+  <img src="https://img.shields.io/badge/Multimedia-0f3d2e?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZjM2YiIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMiA1aDIwdjE0SDJ6TTQgN2gxNnYxMEg0ek0xMCA5LjV2NWw0LjUtMi41eiIvPjwvc3ZnPg%3D%3D" alt="Multimedia">
 </p>
 
 <h2><img src="assets/pixel/h-projects.svg" height="40" alt="Projects"></h2>
