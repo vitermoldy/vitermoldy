@@ -1,7 +1,7 @@
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
 <p align="center">
-  <img src="assets/pixel/room.svg" width="100%" alt="Pixel art: Viter at his desk at night, coding on the main screen, a video edit on the second screen and a photo grid on the laptop, a camera on a tripod, a softbox, an event staff pass and a StudyCabin poster. A neon sign changes between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT ORGANIZER and MULTIMEDIA.">
+  <img src="assets/pixel/room.svg" width="100%" alt="Pixel art: Viter at the desk at night, coding on the main screen, a video edit on the second screen and a photo grid on the laptop, a camera on a tripod, a softbox, an event staff pass and a StudyCabin poster. A neon sign changes between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT ORGANIZER and MULTIMEDIA.">
 </p>
 
 <p align="center">
@@ -21,9 +21,7 @@
 
 <h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
 
-<table>
-<tr>
-<td width="64%" valign="top">
+<img src="assets/pixel/character.svg" align="right" width="44%" alt="Pixel art: Viter in a green hoodie, seen from behind, photographing the sunset in a flower field while the wind lifts the hair, the hood and the camera strap; petals drift past and two birds cross the sky.">
 
 - 🎓 **Information Technology** student
 - 🔭 Currently building **[StudyCabin v2](https://github.com/vitermoldy/StudyCabin-v2)**, a study room in a live 3D forest cabin
@@ -35,12 +33,7 @@
 <!-- - 📍 Based in KOTA KAMU -->
 <!-- - 🏫 Studying at NAMA KAMPUS KAMU -->
 
-</td>
-<td width="36%" align="center">
-  <img src="assets/pixel/face.svg" width="170" alt="PixelFolio's pixel face, blinking, with a pixel heart rising above it.">
-</td>
-</tr>
-</table>
+<img src="assets/pixel/clear.svg" width="100%" height="1" alt="">
 
 <h2><img src="assets/pixel/h-tools.svg" height="40" alt="Skills and tools"></h2>
 
