@@ -50,11 +50,12 @@ on the laptop, a camera on a tripod, a softbox, an event staff pass, a StudyCabi
 the shelf. Its neon sign changes every 2.5 seconds between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT
 ORGANIZER and MULTIMEDIA, each in its own colour.
 
-In About, the sunset flower field (drawn by `tools/pixel.py`) has the character the owner chose in front of it: a
-pixel-art girl with long light-blue hair, a black bow and a sailor uniform. That picture was not drawn for this
-profile and its artist is not known here, so its credit is still to be added (there is a comment for it in the
-README). It was brought back to its own pixel grid (128 x 127) and cut out of its flat background
-(`tools/src/character-cutout.png`); the scene floats to the right of the list, and a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
+In About, the sunset flower field (drawn by `tools/pixel.py`) has the character the owner chose standing in it: a
+chibi pixel girl with long magenta hair, a white blouse, a pink sash and a navy skirt. That picture was not drawn
+for this profile and its artist is not known here, so its credit is still to be added (there is a comment for it
+in the README). It was brought back to its own pixel grid (78 x 109) and cut out of its white background
+(`tools/src/chibi-cutout.png`). The wind blows to the right: strands drawn in her own hair colours stream out to
+the right, and the petals and clouds move the same way. The scene floats to the right of the list, and a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
 because GitHub removes the `clear` attribute from `<br>`.
 
 Checked on 10 November 2026: the public github-readme-stats, activity-graph and trophy servers were down, so none of
