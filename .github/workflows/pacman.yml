@@ -2,13 +2,19 @@ name: Pac-Man contribution graph
 
 # Draws Pac-Man eating your contribution graph and puts the SVGs on the "output" branch,
 # so the README can show them. The main branch is never touched by this workflow.
+# It redraws every hour, so new commits in any of your public repositories show up within about an hour.
+# The output branch is replaced on every run (one commit only), so nothing piles up.
 on:
   schedule:
-    - cron: '0 17 * * *' # every day at 00:00 in Jakarta (UTC+7)
+    - cron: '17 * * * *' # every hour, at minute 17
   workflow_dispatch:
   push:
     branches:
       - main
+
+concurrency:
+  group: pacman
+  cancel-in-progress: true
 
 jobs:
   generate:
