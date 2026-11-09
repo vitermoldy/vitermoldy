@@ -1,7 +1,7 @@
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
 <p align="center">
-  <img src="assets/pixel/banner.svg" width="100%" alt="Pixel art: Viter Moldy Kesuma, Information Technology student, building small worlds. A pixel StudyCabin at night with lit windows, chimney smoke, an aurora, stars, a doe by the pond and fireflies.">
+  <img src="assets/pixel/room.svg" width="100%" alt="Pixel art: Viter at his desk at night, coding on the main screen, a video edit on the second screen and a photo grid on the laptop, a camera on a tripod, a softbox, an event staff pass and a StudyCabin poster. A neon sign changes between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT ORGANIZER and MULTIMEDIA.">
 </p>
 
 <p align="center">
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/pixel/room.svg" width="100%" alt="Pixel art: Viter at his desk at night, coding on the main screen, a video edit on the second screen and a photo grid on the laptop, a camera on a tripod, a softbox, an event staff pass and a StudyCabin poster. A neon sign changes between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT ORGANIZER and MULTIMEDIA.">
+  <img src="assets/pixel/banner.svg" width="100%" alt="Pixel art: Viter Moldy Kesuma, Information Technology student, building small worlds. A pixel StudyCabin at night with lit windows, chimney smoke, an aurora, stars, a doe by the pond and fireflies.">
 </p>
 
 <h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
