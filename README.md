@@ -130,9 +130,9 @@
 <p align="center">
   <a href="https://github.com/vitermoldy"><img src="https://img.shields.io/badge/GitHub-0f3d2e?style=for-the-badge&logo=github&logoColor=fff36b" alt="GitHub"></a>
   <a href="https://vitermoldy.github.io/MyPortofolio/"><img src="https://img.shields.io/badge/Portfolio-0f3d2e?style=for-the-badge&logo=googlechrome&logoColor=fff36b" alt="Portfolio"></a>
-  <!-- <a href="mailto:EMAIL_KAMU"><img src="https://img.shields.io/badge/Email-0f3d2e?style=for-the-badge&logo=gmail&logoColor=fff36b" alt="Email"></a> -->
-  <!-- <a href="https://linkedin.com/in/USERNAME_KAMU"><img src="https://img.shields.io/badge/LinkedIn-0f3d2e?style=for-the-badge&logo=linkedin&logoColor=fff36b" alt="LinkedIn"></a> -->
-  <!-- <a href="https://instagram.com/USERNAME_KAMU"><img src="https://img.shields.io/badge/Instagram-0f3d2e?style=for-the-badge&logo=instagram&logoColor=fff36b" alt="Instagram"></a> -->
+  <a href="mailto:vitermoldy@gmail.com"><img src="https://img.shields.io/badge/Email-0f3d2e?style=for-the-badge&logo=gmail&logoColor=fff36b" alt="Email: vitermoldy@gmail.com"></a>
+  <a href="https://www.linkedin.com/in/viter-m-6bb859303/"><img src="https://img.shields.io/badge/LinkedIn-0f3d2e?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZjM2YiIgZD0iTTUgMi44YTIuMiAyLjIgMCAxIDEgMCA0LjRhMi4yIDIuMiAwIDEgMSAwLTQuNHpNMyA5aDR2MTJIM3pNMTAgOWgzLjh2MS43Yy42LTEgMS45LTIgMy45LTJjNCAwIDQuMyAyLjYgNC4zIDZWMjFoLTR2LTUuN2MwLTEuNCAwLTMuMS0xLjktMy4xcy0yLjIgMS41LTIuMiAzVjIxaC00eiIvPjwvc3ZnPg%3D%3D" alt="LinkedIn"></a>
+  <a href="https://www.instagram.com/vitermk_/"><img src="https://img.shields.io/badge/Instagram-0f3d2e?style=for-the-badge&logo=instagram&logoColor=fff36b" alt="Instagram"></a>
 </p>
 
 <p align="center">
