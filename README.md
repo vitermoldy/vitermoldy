@@ -21,8 +21,7 @@
 
 <h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
 
-<img src="assets/pixel/character.svg" align="right" width="44%" alt="Pixel art: a chibi girl with long magenta hair, a white blouse, a pink sash and a navy skirt stands in a flower field at sunset; petals drift past and two birds cross the sky.">
-<!-- Character art: not drawn for this profile. Add the artist's name and link here. -->
+<img src="assets/pixel/character.svg?v=hoodie" align="right" width="44%" alt="Pixel art: Viter in a green hoodie, seen from behind, photographing the sunset in a flower field while the wind lifts the hair, the hood and the camera strap; petals drift past and two birds cross the sky.">
 
 - 🎓 **Information Technology** student
 - 🔭 Currently building **[StudyCabin v2](https://github.com/vitermoldy/StudyCabin-v2)**, a study room in a live 3D forest cabin
