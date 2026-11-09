@@ -31,7 +31,7 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 
 | Piece | Source |
 | --- | --- |
-| Banner, the room, section headers, project cards, footer | Drawn by `tools/pixel.py` into `assets/pixel/` |
+| Banner, the room, the sunset field, section headers, project cards, footer | Drawn by `tools/pixel.py` into `assets/pixel/` |
 | Creative skill badges (photography, event organizer, multimedia) | shields.io with small icons drawn for them (simple-icons has none) |
 | Typing line | readme-typing-svg (demolab), in Tiny5, yellow in dark mode and green in light mode |
 | Visitor counter | komarev, as GPRM uses it |
@@ -50,9 +50,11 @@ on the laptop, a camera on a tripod, a softbox, an event staff pass, a StudyCabi
 the shelf. Its neon sign changes every 2.5 seconds between VITERMOLDY, FRONTEND / FULL STACK, PHOTOGRAPHY, EVENT
 ORGANIZER and MULTIMEDIA, each in its own colour.
 
-In About, a pixel-art picture the owner chose (an anime girl with long light-blue hair, a black bow and a sailor
-uniform) floats to the right of the list. It was not drawn for this profile and its artist is not known here, so
-its credit is still to be added (there is a comment for it in the README). a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
+In About, the sunset flower field (drawn by `tools/pixel.py`) has the character the owner chose in front of it: a
+pixel-art girl with long light-blue hair, a black bow and a sailor uniform. That picture was not drawn for this
+profile and its artist is not known here, so its credit is still to be added (there is a comment for it in the
+README). It was brought back to its own pixel grid (128 x 127) and cut out of its flat background
+(`tools/src/character-cutout.png`); the scene floats to the right of the list, and a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
 because GitHub removes the `clear` attribute from `<br>`.
 
 Checked on 10 November 2026: the public github-readme-stats, activity-graph and trophy servers were down, so none of
