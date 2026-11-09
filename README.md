@@ -21,7 +21,8 @@
 
 <h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
 
-<img src="assets/pixel/character.svg" align="right" width="44%" alt="Pixel art: an original character, a girl with long dark brown hair in a cream sweater and a green skirt, stands facing us in a flower field at sunset with a camera at her chest; the wind blows her hair out to the side, petals drift past and two birds cross the sky.">
+<img src="assets/pixel/character.png" align="right" width="40%" alt="Pixel art of an anime girl with long light-blue hair, a black bow and a white sailor uniform with a red collar.">
+<!-- Character art: not drawn for this profile. Add the artist's name and link here. -->
 
 - 🎓 **Information Technology** student
 - 🔭 Currently building **[StudyCabin v2](https://github.com/vitermoldy/StudyCabin-v2)**, a study room in a live 3D forest cabin
