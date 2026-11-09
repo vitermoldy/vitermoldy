@@ -761,8 +761,9 @@ def room():
 
 # ---------------------------------------------------------------- the character in the field
 def character():
-    """The owner's pixel self from the room, out in a flower field at sunset, photographing it.
-    Hair, hoodie strings and the camera strap move in the wind; petals and two birds cross the sky."""
+    """An original pixel character: a girl with long hair, facing us in a flower field at sunset, a camera
+    held at her chest. The wind blows her long hair out to the left and lifts her skirt; petals and two
+    birds cross the sky."""
     W, H = 128, 96
     rnd = random.Random(33)
     HORIZON = 70
@@ -809,66 +810,103 @@ def character():
             elif r < 0.13 + 0.10 * depth:
                 base.set(x, y, rnd.choice([ACCENT, WARM, HOT, PAPER, PINK]))
 
-    # the character, from behind: the same person as in the room (green hoodie, headphones round the neck),
-    # out in the field, taking a photo of the sunset with the camera raised to the eye
+    # the character: a girl with long hair, facing us, holding a camera at her chest
     CX = 88
-    JEANS, SHOE = '#2a3a52', PAPER
-    body = Canvas()
-    for y in range(74, 89):                                  # jeans and sneakers
-        body.rect(CX - 5, y, 4, 1, JEANS)
-        body.rect(CX + 2, y, 4, 1, JEANS)
-    body.rect(CX - 6, 89, 5, 2, SHOE)
-    body.rect(CX + 2, 89, 5, 2, SHOE)
-    for y in range(49, 75):                                  # hoodie
-        half = (5, 7, 8, 9)[y - 49] if y < 53 else 9 if y < 72 else 8
-        body.rect(CX - half, y, half * 2 + 1, 1, MID)
-    for y in range(55, 72):                                  # back seam shading
-        body.set(CX - 6, y, COLD)
-        body.set(CX + 6, y, COLD)
-    body.rect(CX - 8, 72, 17, 2, COLD)                       # ribbed hem
-    for i, half in enumerate((4, 5, 5, 5, 4, 4, 3, 2, 1)):   # the hood, hanging down the back
-        body.rect(CX - half, 48 + i, half * 2 + 1, 1, LEAF)
-    body.rect(CX - 3, 48, 7, 1, COLD)                        # its opening, seen from above
-    for x, y in ((-6, 47), (-5, 48), (5, 48), (6, 47)):      # headphones round the neck
-        body.set(CX + x, y, ACCENT)
-    body.rect(CX - 7, 46, 2, 3, ACCENT)
-    body.rect(CX + 6, 46, 2, 3, ACCENT)
-    def limb(x0, y0, x1, y1, w, col):
-        n = max(abs(x1 - x0), abs(y1 - y0))
-        for i in range(n + 1):
-            x = round(x0 + (x1 - x0) * i / n)
-            y = round(y0 + (y1 - y0) * i / n)
-            body.rect(x - w // 2, y, w, 1, col)
+    HAIR, HAIR2, TIP = '#3a2219', '#5c3a26', '#7a4e33'
+    SWEATER, SHADE, SKIRT = PAPER, SOFT, MID
 
-    for side in (-1, 1):                                     # sleeves: elbows out, hands up at the camera
-        limb(CX + side * 8, 50, CX + side * 13, 56, 3, MID)
-        limb(CX + side * 13, 56, CX + side * 10, 47, 3, MID)
-        body.rect(CX + side * 13 - 1, 56, 3, 1, COLD)
-        body.rect(CX + side * 10 - 1, 45, 3, 2, SKIN)
-    for y in range(-6, 6):                                   # head: short hair
-        for x in range(-5, 6):
-            if (x / 5.2) ** 2 + (y / 6) ** 2 <= 1:
-                body.set(CX + x, 41 + y, INK)
-    body.rect(CX - 9, 41, 3, 5, INK2)                        # the camera, sticking out each side of the head
-    body.rect(CX + 7, 41, 3, 5, INK2)
-    body.rect(CX + 7, 40, 2, 1, MUTED)
-    body.set(CX + 8, 40, ACCENT)
-
-    def wind(phase):
+    def hair_back(phase):
+        """Long hair blown out to the left: strands rooted all round the head fan out from just above
+        level to well below it, each a wave that grows towards the tip and travels outwards."""
         cv = Canvas()
-        for i, (x, y) in enumerate(((-5, 37), (-6, 39), (-6, 41), (-6, 43), (-3, 35), (0, 34))):
-            if math.sin(phase + i * 1.3) > -0.2:             # short hair, a few strands lifted to the left
-                cv.set(CX + x - 1, y, INK)
-        for i in range(3):                                   # the hood's edge in the wind
-            cv.set(CX - 5 - (1 if math.sin(phase + i) > 0 else 0), 50 + i * 2, LEAF)
-        for t in range(12):                                  # camera strap
-            cv.set(CX - 9 - t + round(1.3 * math.sin(t * 0.6 + phase)), 46 + t, ACCENT)
-        for x in range(CX - 9, CX + 10):                     # hem flutter
-            if math.sin(x * 0.9 + phase * 2) > 0.4:
-                cv.set(x, 74, COLD)
+        for k in range(26):
+            ang = math.pi * k / 25
+            sx = CX + round(6 * math.cos(math.pi - ang))
+            sy = 40 - round(4.5 * math.sin(ang))
+            theta = math.radians(-2 + k * 1.15)
+            length = 30 + (k * 7) % 12
+            for t in range(length):
+                amp = 0.2 + t * 0.055
+                wav = amp * math.sin(t * 0.26 - phase + k * 0.25)
+                x = sx - t * math.cos(theta) - wav * math.sin(theta)
+                y = sy + t * math.sin(theta) + wav * math.cos(theta) + t * t * 0.004
+                col = HAIR2 if k % 6 == 3 else HAIR
+                if t > length - 6:
+                    col = TIP
+                cv.rect(round(x), round(y), 1 if t > length - 6 else 2, 1, col)
+        for j, (lx, ly) in enumerate(((CX - 34, 36), (CX - 40, 48), (CX - 28, 58))):
+            for t in range(8):                               # loose strands carried off
+                cv.set(round(lx - t + 2.5 * math.sin(phase + j * 2)), round(ly + 1.2 * math.sin(t * 0.8 - phase)), TIP)
         return cv
 
-    frames = [wind(p) for p in (0.0, 2.1, 4.2)]
+    body = Canvas()
+    for y in range(-6, 7):                                   # face
+        for x in range(-5, 6):
+            if (x / 5.3) ** 2 + (y / 6.3) ** 2 <= 1:
+                body.set(CX + x, 42 + y, SKIN)
+    body.rect(CX - 1, 48, 3, 2, SKIN)                        # neck
+    for y in range(34, 41):                                  # top of the head and the fringe
+        for x in range(-6, 7):
+            if (x / 6.4) ** 2 + ((y - 40) / 6.2) ** 2 <= 1:
+                body.set(CX + x, y, HAIR)
+    for i, x in enumerate(range(CX - 5, CX + 6)):            # the fringe's uneven edge
+        body.rect(x, 40, 1, 1 + (i % 3 == 0) + (i % 4 == 1), HAIR)
+    for x in (CX - 3, CX + 2):                               # eyes, blush, smile
+        body.rect(x, 43, 1, 2, INK)
+    body.rect(CX - 5, 46, 2, 1, PINK)
+    body.rect(CX + 4, 46, 2, 1, PINK)
+    body.rect(CX - 1, 47, 2, 1, '#b5452e')
+    body.rect(CX + 3, 35, 3, 2, ACCENT)                      # flower clip
+    body.set(CX + 4, 34, HOT)
+    body.set(CX + 4, 35, WARM)
+    for y in range(50, 69):                                  # oversized sweater
+        half = (5, 7, 8)[y - 50] if y < 53 else 8
+        body.rect(CX - half, y, half * 2 + 1, 1, SWEATER)
+        body.rect(CX - half, y, 2, 1, SHADE)
+    body.rect(CX - 8, 66, 17, 2, SHADE)                      # ribbed hem
+    for side in (-1, 1):                                     # sleeves: down to the elbow, then in to the camera
+        for t in range(8):
+            body.rect(CX + side * 9 - (1 if side > 0 else 0), 51 + t, 2, 1, SWEATER if t < 6 else SHADE)
+        for t in range(6):
+            body.rect(CX + side * (9 - t) - (1 if side > 0 else 0), 59 + t // 3, 2, 1, SWEATER)
+        body.rect(CX + side * 4 - (1 if side > 0 else 0), 59, 2, 2, SKIN)
+    body.rect(CX - 4, 56, 9, 6, INK2)                        # the camera
+    body.rect(CX - 4, 56, 9, 1, MUTED)
+    body.rect(CX - 1, 57, 3, 3, MUTED)
+    body.set(CX, 58, COLD)
+    body.set(CX - 1, 57, PAPER)
+    body.set(CX + 3, 55, ACCENT)
+    for t in range(6):                                       # strap up to the neck
+        body.set(CX - 4 + t // 2, 55 - t, ACCENT)
+        body.set(CX + 4 - t // 2, 55 - t, ACCENT)
+    for y in range(68, 80):                                  # skirt, pleated
+        half = 7 + (y - 68) // 3
+        body.rect(CX - half, y, half * 2 + 1, 1, SKIRT)
+        for x in range(CX - half + 2, CX + half, 3):
+            body.set(x, y, COLD)
+    for x in (CX - 3, CX + 2):                               # legs, socks, shoes
+        body.rect(x, 80, 2, 7, SKIN)
+        body.rect(x, 86, 2, 2, PAPER)
+        body.rect(x - (1 if x < CX else 0), 88, 3, 2, INK2)
+
+    def hair_front(phase):
+        """A lock over the left shoulder and the fringe lifting, both pushed left; the skirt's hem flutters."""
+        cv = Canvas()
+        for t in range(20):                                  # the lock in front of the left shoulder
+            amp = 0.4 + t * 0.08
+            x = CX - 6 - t * 0.75 + amp * math.sin(t * 0.35 - phase)
+            y = 39 + t * 0.8
+            cv.rect(round(x), round(y), 2 if t < 15 else 1, 1, TIP if t > 15 else HAIR2 if t % 5 == 0 else HAIR)
+        for j in range(3):                                   # fringe strands lifted by the wind
+            for t in range(5 + j):
+                cv.set(CX - 2 + j * 2 - t, 37 + j - round(0.8 * math.sin(t * 0.9 + phase)), HAIR if t < 4 else HAIR2)
+        for x in range(CX - 11, CX + 12):
+            if math.sin(x * 0.8 + phase * 2) > 0.35:
+                cv.set(x, 80, SKIRT)
+        return cv
+
+    backs = [hair_back(p) for p in (0.0, 2.1, 4.2)]
+    frames = [hair_front(p) for p in (0.0, 2.1, 4.2)]
     front = Canvas()
     for x in range(0, W, 2):                                 # tall flowers in front, over the feet
         if rnd.random() < 0.6:
@@ -892,7 +930,8 @@ def character():
     css = []
 
     svg_body = base.svg() + clouds.svg('cl') + birds.svg('bd')
-    svg_body += body.svg() + ''.join(f.svg(f'wf wf{i}') for i, f in enumerate(frames)) + front.svg()
+    svg_body += ''.join(f.svg(f'wf wf{i}') for i, f in enumerate(backs)) + body.svg()
+    svg_body += ''.join(f.svg(f'wf wf{i}') for i, f in enumerate(frames)) + front.svg()
     svg_body += ''.join(s for s, _, _ in petal_svg)
     css += ['.wf1,.wf2{opacity:0}',
             '.wf{animation:wf 1.8s steps(1) infinite}.wf1{animation-delay:-1.2s}.wf2{animation-delay:-.6s}',
@@ -902,8 +941,8 @@ def character():
             '@keyframes pt{from{transform:translate(0,0)}to{transform:translate(-150px,52px)}}']
     for i, (_, dur, delay) in enumerate(petal_svg):
         css.append(f'.pt{i}{{animation:pt {dur:.1f}s steps({int(dur * 20)}) {delay:.1f}s infinite}}')
-    title = ('Pixel art: Viter in a green hoodie with headphones round the neck stands in a flower field at sunset, '
-             'seen from behind, photographing the sun; the wind lifts the hair, hoodie strings and camera strap, '
+    title = ('Pixel art: an original character, a girl with long dark brown hair in a cream sweater and a green skirt, '
+             'stands facing us in a flower field at sunset, holding a camera at her chest; the wind blows her long hair out to the side, '
              'petals drift past and two birds cross the sky.')
     write('character.svg', document(W, H, 4, title, svg_body, ''.join(css)))
 
