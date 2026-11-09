@@ -1,39 +1,140 @@
-<a href="https://github.com/vitermoldy/StudyCabin-v2"><img src="assets/hero.svg" width="100%" alt="Viter Moldy Kesuma, Information Technology student. Behind the name, StudyCabin, a forest cabin from one of my projects, through one day: Coffee at 07:20, Study at 09:30, Reading at 20:05 and Journal at 22:10."></a>
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
-I study Information Technology and build web pages that keep their own clock: a cabin that lives through a 24-minute day, a TV in a forest clearing that plays your YouTube queue, and Laravel and PHP apps with a real database behind them.
+<p align="center">
+  <img src="assets/pixel/banner.svg" width="100%" alt="Pixel art: Viter Moldy Kesuma, Information Technology student, building small worlds. A pixel StudyCabin at night with lit windows, chimney smoke, an aurora, stars, a doe by the pond and fireflies.">
+</p>
 
-<!-- now:start -->
-Last push: [StudyCabin-v1](https://github.com/vitermoldy/StudyCabin-v1), 10 November 2026.
-<!-- now:end -->
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Tiny5&size=22&duration=2800&pause=900&color=F0B429&center=true&vCenter=true&width=640&lines=Information+Technology+Student;I+build+cozy+3D+worlds+with+three.js;Laravel+%2B+PHP+%2B+MySQL+on+the+back+end;Pixel+art+lover%2C+see+PixelFolio">
+    <img alt="Information Technology Student. I build cozy 3D worlds with three.js. Laravel, PHP and MySQL on the back end. Pixel art lover, see PixelFolio." src="https://readme-typing-svg.demolab.com?font=Tiny5&size=22&duration=2800&pause=900&color=1F6E44&center=true&vCenter=true&width=640&lines=Information+Technology+Student;I+build+cozy+3D+worlds+with+three.js;Laravel+%2B+PHP+%2B+MySQL+on+the+back+end;Pixel+art+lover%2C+see+PixelFolio">
+  </picture>
+</p>
 
-### Work
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=vitermoldy&label=PROFILE+VIEWS&color=1f6e44&style=for-the-badge" alt="Profile views">
+</p>
 
-<a href="https://github.com/vitermoldy/StudyCabin-v2"><img src="assets/studycabin.jpg" width="100%" alt="StudyCabin, 2026. Study at 09:20 at the desk, a walk at 11:30 on a phone, Journal at 22:00, dinner at 18:45 on a phone: the interface over the live 3D cabin."></a>
+<h2><img src="assets/pixel/h-about.svg" height="40" alt="About me"></h2>
 
-**StudyCabin** is a study room in a live cabin, built with three.js and Vite. One game minute passes every real second, so a day lasts 24 minutes. The weather turns, five seasons change, and a resident keeps a daily routine while you study to your own YouTube music. [Version 1](https://github.com/vitermoldy/StudyCabin-v1) stands on a misty beach; [version 2](https://github.com/vitermoldy/StudyCabin-v2) moves it into a forest clearing with deer, a fox, and an owl on the roof at night.
+<table>
+<tr>
+<td width="64%" valign="top">
 
-<a href="https://github.com/vitermoldy/SongPlay-v2"><img src="assets/songplay.jpg" width="100%" alt="SongPlay, 2026. The landing page with a glowing TV on a knoll; a phone playing a video on the TV; the player at an autumn sunset; the player on a phone in the rain."></a>
+- 🎓 **Information Technology** student
+- 🔭 Currently building **[StudyCabin v2](https://github.com/vitermoldy/StudyCabin-v2)**, a study room in a live 3D forest cabin
+- 🌱 Learning more **three.js**, **Laravel 12** and **Astro**
+- 👾 Into pixel art, cozy 3D scenes and the small details
+- 💬 Ask me about three.js, Laravel, PHP and MySQL
+- ⚡ Fun fact: in StudyCabin a whole day lasts 24 minutes
+<!-- - 📍 Based in KOTA KAMU -->
+<!-- - 🏫 Studying at NAMA KAMPUS KAMU -->
 
-**SongPlay** is the landing page for SongLearn, a tape digitizing service. Its first screen is a real-time 3D scene: a glowing CRT television on a grassy knoll, grass moving in the wind, and a cursor that works as a lamp. The player page lines up your YouTube links and plays them on the TV, under the time of day and the season you pick. Code: [version 1](https://github.com/vitermoldy/SongPlay-v1) and [version 2](https://github.com/vitermoldy/SongPlay-v2).
+</td>
+<td width="36%" align="center">
+  <img src="assets/pixel/face.svg" width="170" alt="PixelFolio's pixel face, blinking, with a pixel heart rising above it.">
+</td>
+</tr>
+</table>
 
-<a href="https://github.com/vitermoldy/PixelFoliov2"><img src="assets/templates.jpg" width="100%" alt="Page templates, 2026. A PixelFolio project page with its pixel drawing; PixelFolio on a phone; the Medianta product page; the Modern portfolio template on a phone."></a>
+<h2><img src="assets/pixel/h-tools.svg" height="40" alt="Languages and tools"></h2>
 
-**Templates** for other people to fill in. [PixelFolio](https://github.com/vitermoldy/PixelFolio) ([v2](https://github.com/vitermoldy/PixelFoliov2)) is an Astro and TypeScript portfolio where the cursor leaves a trail of pixels that cool from lime to navy. The [Modern](https://github.com/vitermoldy/Modern-Portofolio-Template) and [Formal](https://github.com/vitermoldy/Formal-Portofolio-Template) portfolio templates are plain HTML and CSS. [Medianta](https://github.com/vitermoldy/Product-Website-v) is a product page, in Indonesian, for a statistics workspace.
+<p align="center"><b>LANGUAGES</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/JavaScript-0f3d2e?style=for-the-badge&logo=javascript&logoColor=fff36b" alt="JavaScript">
+  <img src="https://img.shields.io/badge/TypeScript-0f3d2e?style=for-the-badge&logo=typescript&logoColor=fff36b" alt="TypeScript">
+  <img src="https://img.shields.io/badge/PHP-0f3d2e?style=for-the-badge&logo=php&logoColor=fff36b" alt="PHP">
+  <img src="https://img.shields.io/badge/HTML5-0f3d2e?style=for-the-badge&logo=html5&logoColor=fff36b" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS-0f3d2e?style=for-the-badge&logo=css&logoColor=fff36b" alt="CSS">
+</p>
 
-### About
+<p align="center"><b>FRONTEND AND 3D</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Three.js-0f3d2e?style=for-the-badge&logo=threedotjs&logoColor=fff36b" alt="Three.js">
+  <img src="https://img.shields.io/badge/Astro-0f3d2e?style=for-the-badge&logo=astro&logoColor=fff36b" alt="Astro">
+  <img src="https://img.shields.io/badge/Vite-0f3d2e?style=for-the-badge&logo=vite&logoColor=fff36b" alt="Vite">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-0f3d2e?style=for-the-badge&logo=tailwindcss&logoColor=fff36b" alt="Tailwind CSS">
+</p>
 
-**Studying:** Information Technology  
-**On GitHub since:** August 2025  
-**Writing in:** English and Indonesian
+<p align="center"><b>BACKEND AND DATABASE</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-0f3d2e?style=for-the-badge&logo=laravel&logoColor=fff36b" alt="Laravel">
+  <img src="https://img.shields.io/badge/Livewire-0f3d2e?style=for-the-badge&logo=livewire&logoColor=fff36b" alt="Livewire">
+  <img src="https://img.shields.io/badge/Node.js-0f3d2e?style=for-the-badge&logo=nodedotjs&logoColor=fff36b" alt="Node.js">
+  <img src="https://img.shields.io/badge/MySQL-0f3d2e?style=for-the-badge&logo=mysql&logoColor=fff36b" alt="MySQL">
+  <img src="https://img.shields.io/badge/PostgreSQL-0f3d2e?style=for-the-badge&logo=postgresql&logoColor=fff36b" alt="PostgreSQL">
+</p>
 
-My first pages, in 2025, were a Jujutsu Kaisen fan portal and a calculator in plain HTML. A year on, I build pages that hold a whole day: a clock, the weather, the seasons, animals on their own trails. What I care about is what you only notice when it is missing: type that stays readable at night, a phone layout designed as its own thing, and buttons that do what they say. Before a page ships, it goes through two sets of design rules: [taste-skill](https://github.com/Leonxlnx/taste-skill) and [anti-slop](https://github.com/miqdadbadjuber/anti-slop).
+<p align="center"><b>TOOLS AND CLOUD</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Git-0f3d2e?style=for-the-badge&logo=git&logoColor=fff36b" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub-0f3d2e?style=for-the-badge&logo=github&logoColor=fff36b" alt="GitHub">
+  <img src="https://img.shields.io/badge/Docker-0f3d2e?style=for-the-badge&logo=docker&logoColor=fff36b" alt="Docker">
+  <img src="https://img.shields.io/badge/Google_Cloud-0f3d2e?style=for-the-badge&logo=googlecloud&logoColor=fff36b" alt="Google Cloud">
+</p>
 
-### What I work with
+<h2><img src="assets/pixel/h-projects.svg" height="40" alt="Projects"></h2>
 
-<a href="https://github.com/vitermoldy?tab=repositories"><img src="assets/lineup.png" width="100%" alt="In the browser: three.js and Vite in StudyCabin and SongPlay; Astro and TypeScript in PixelFolio; HTML, CSS and JavaScript in the templates and my first sites. On the server: Laravel 12 and Livewire in Viygo; PHP and MySQL in Tubes-Proweb; PostgreSQL and PL/pgSQL in msbd-2026."></a>
+<table>
+<tr>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/StudyCabin-v2"><img src="assets/pixel/card-studycabin.svg" width="100%" alt="StudyCabin, three.js and Vite"></a>
+  <br>A study room in a live 3D cabin. A day lasts 24 minutes, with weather, five seasons, animals and your own YouTube music. <a href="https://github.com/vitermoldy/StudyCabin-v1">v1</a> · <a href="https://github.com/vitermoldy/StudyCabin-v2">v2</a>
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/SongPlay-v2"><img src="assets/pixel/card-songplay.svg" width="100%" alt="SongPlay, three.js and YouTube"></a>
+  <br>A glowing CRT TV in a 3D forest clearing that plays your YouTube queue, under the time of day and season you pick. <a href="https://github.com/vitermoldy/SongPlay-v1">v1</a> · <a href="https://github.com/vitermoldy/SongPlay-v2">v2</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/PixelFoliov2"><img src="assets/pixel/card-pixelfolio.svg" width="100%" alt="PixelFolio, Astro and TypeScript"></a>
+  <br>A portfolio template where the cursor leaves a trail of pixels that cool from lime to navy. <a href="https://github.com/vitermoldy/PixelFolio">v1</a> · <a href="https://github.com/vitermoldy/PixelFoliov2">v2</a>
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/Viygo-Salon-Web"><img src="assets/pixel/card-viygo.svg" width="100%" alt="Viygo, Laravel 12 and MySQL"></a>
+  <br>A salon search and booking site: search, salon pages with a Leaflet map and a three-step booking flow. <a href="https://github.com/vitermoldy/Viygo-Salon-Web">Repo</a>
+</td>
+</tr>
+</table>
 
-[Viygo](https://github.com/vitermoldy/Viygo-Salon-Web) is a salon search and booking site in Laravel 12, with Livewire Flux, Tailwind CSS 4 and Leaflet maps: search, salon pages with a map, a three-step booking flow and an account area. [Tubes-Proweb](https://github.com/vitermoldy/Tubes-Proweb) is my final project for web programming, a PHP and MySQL social site with posts, comments, likes, follows and three kinds of account. [msbd-2026](https://github.com/vitermoldy/msbd-2026) is a group database project in PostgreSQL and PL/pgSQL.
+<p align="center">
+  More: <a href="https://github.com/vitermoldy/Modern-Portofolio-Template">Modern Portfolio</a> ·
+  <a href="https://github.com/vitermoldy/Formal-Portofolio-Template">Formal Portfolio</a> ·
+  <a href="https://github.com/vitermoldy/Product-Website-v">Medianta</a> ·
+  <a href="https://github.com/vitermoldy/Tubes-Proweb">Tubes-Proweb</a> ·
+  <a href="https://github.com/vitermoldy/msbd-2026">msbd-2026</a>
+</p>
 
-<a href="https://github.com/vitermoldy?tab=repositories"><img src="assets/contact.jpg" width="100%" alt="Say hello: on GitHub as vitermoldy. Button: my repositories. Behind the card, the TV from SongPlay glows in a forest clearing on a rainy night."></a>
+<h2><img src="assets/pixel/h-stats.svg" height="40" alt="GitHub stats"></h2>
 
-[All my repositories](https://github.com/vitermoldy?tab=repositories) · [My older portfolio site](https://vitermoldy.github.io/MyPortofolio/)
+<p align="center">
+  <img height="165" src="https://github-readme-stats.shion.dev/api?username=vitermoldy&show_icons=true&include_all_commits=true&border_radius=0&bg_color=121a14&title_color=fff36b&icon_color=f0b429&text_color=eef0e6&border_color=1f6e44&ring_color=f0b429" alt="Viter's GitHub stats">
+  <img height="165" src="https://github-readme-stats.shion.dev/api/top-langs/?username=vitermoldy&layout=compact&langs_count=6&border_radius=0&bg_color=121a14&title_color=fff36b&text_color=eef0e6&border_color=1f6e44" alt="Most used languages">
+</p>
+<p align="center">
+  <img src="https://streak-stats.demolab.com?user=vitermoldy&border_radius=0&background=121A14&border=1F6E44&ring=F0B429&fire=E4572E&currStreakNum=FFF36B&sideNums=EEF0E6&currStreakLabel=F0B429&sideLabels=AAB6A5&dates=AAB6A5&stroke=1F6E44" alt="GitHub streak">
+</p>
+
+<h2><img src="assets/pixel/h-graph.svg" height="40" alt="Contributions"></h2>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vitermoldy/vitermoldy/output/pacman-contribution-graph-dark.svg">
+    <img alt="Pac-Man eating my GitHub contribution graph" src="https://raw.githubusercontent.com/vitermoldy/vitermoldy/output/pacman-contribution-graph.svg">
+  </picture>
+</p>
+
+<h2><img src="assets/pixel/h-contact.svg" height="40" alt="Connect with me"></h2>
+
+<p align="center">
+  <a href="https://github.com/vitermoldy"><img src="https://img.shields.io/badge/GitHub-0f3d2e?style=for-the-badge&logo=github&logoColor=fff36b" alt="GitHub"></a>
+  <a href="https://vitermoldy.github.io/MyPortofolio/"><img src="https://img.shields.io/badge/Portfolio-0f3d2e?style=for-the-badge&logo=googlechrome&logoColor=fff36b" alt="Portfolio"></a>
+  <!-- <a href="mailto:EMAIL_KAMU"><img src="https://img.shields.io/badge/Email-0f3d2e?style=for-the-badge&logo=gmail&logoColor=fff36b" alt="Email"></a> -->
+  <!-- <a href="https://linkedin.com/in/USERNAME_KAMU"><img src="https://img.shields.io/badge/LinkedIn-0f3d2e?style=for-the-badge&logo=linkedin&logoColor=fff36b" alt="LinkedIn"></a> -->
+  <!-- <a href="https://instagram.com/USERNAME_KAMU"><img src="https://img.shields.io/badge/Instagram-0f3d2e?style=for-the-badge&logo=instagram&logoColor=fff36b" alt="Instagram"></a> -->
+</p>
+
+<p align="center">
+  <img src="assets/pixel/footer.svg" width="100%" alt="Pixel grass with fireflies: thanks for stopping by.">
+</p>
