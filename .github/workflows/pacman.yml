@@ -1,0 +1,33 @@
+name: Pac-Man contribution graph
+
+# Draws Pac-Man eating your contribution graph and puts the SVGs on the "output" branch,
+# so the README can show them. The main branch is never touched by this workflow.
+on:
+  schedule:
+    - cron: '0 17 * * *' # every day at 00:00 in Jakarta (UTC+7)
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Draw the Pac-Man graphs
+        uses: abozanona/pacman-contribution-graph@v5.0.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: 'pacman'
+
+      - name: Publish them to the output branch
+        uses: crazy-max/ghaction-github-pages@v5
+        with:
+          target_branch: output
+          build_dir: dist
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
