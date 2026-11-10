@@ -101,6 +101,12 @@
   <br>A salon search and booking site: search, salon pages with a Leaflet map and a three-step booking flow. <a href="https://github.com/vitermoldy/Viygo-Salon-Web">Repo</a>
 </td>
 </tr>
+<tr>
+<td colspan="2" align="center" valign="top">
+  <a href="https://github.com/vitermoldy/LandingPage-sitev1"><img src="assets/pixel/card-lanskara.svg" width="50%" alt="Lanskara, HTML, CSS and JavaScript"></a>
+  <br>A landing page for a web studio: a design-canvas hero with labelled cursors, a statement that lights up word by word as you scroll, and a block that turns the whole page dark. <a href="https://github.com/vitermoldy/LandingPage-sitev1">Repo</a>
+</td>
+</tr>
 </table>
 
 <p align="center">
