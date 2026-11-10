@@ -29,6 +29,23 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           games: 'pacman'
 
+      # The action draws in GitHub's own greys and greens and takes no colour options, so its SVGs are
+      # recoloured here in the profile's Hutan palette (DESIGN.md), the same colours as the stats cards.
+      # Dark: ink ground, forest greens, the busiest days in hot yellow, pale maze walls.
+      # Light: paper ground, the same greens, ink walls. No target colour is also a source, so the order is safe.
+      - name: Colour them in the Hutan palette
+        run: |
+          sed -i \
+            -e 's/#0d1117/#121a14/Ig' -e 's/#161b22/#1b271e/Ig' \
+            -e 's/#0e4429/#174f35/Ig' -e 's/#006d32/#1f6e44/Ig' -e 's/#26a641/#2f8a55/Ig' -e 's/#39d353/#fff36b/Ig' \
+            -e 's/#ffffff/#aab6a5/Ig' -e 's/#8b949e/#aab6a5/Ig' \
+            dist/pacman-contribution-graph-dark.svg
+          sed -i \
+            -e 's/#ffffff/#eef0e6/Ig' -e 's/#ebedf0/#dde2d2/Ig' \
+            -e 's/#9be9a8/#a9cf9a/Ig' -e 's/#40c463/#2f8a55/Ig' -e 's/#30a14e/#1f6e44/Ig' -e 's/#216e39/#0f3d2e/Ig' \
+            -e 's/#000000/#121a14/Ig' -e 's/#57606a/#4f5b4d/Ig' \
+            dist/pacman-contribution-graph.svg
+
       - name: Publish them to the output branch
         uses: crazy-max/ghaction-github-pages@v5
         with:
