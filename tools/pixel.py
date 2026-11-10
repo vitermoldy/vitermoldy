@@ -13,7 +13,7 @@ from pathlib import Path
 
 from fontTools.pens.recordingPen import RecordingPen
 from fontTools.ttLib import TTFont
-from PIL import Image
+from PIL import Image, ImageColor
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'assets' / 'pixel'
@@ -908,12 +908,184 @@ def character():
     write('character.svg', document(W, H, 4, title, svg_body, ''.join(css)))
 
 
+# ---------------------------------------------------------------- the avatar
+def avatar(variant='night'):
+    """The GitHub profile picture: the same person as in the room and the field, now facing us, head and
+    shoulders, with a big moon (night) or sun (sunset) behind the head so the dark hair stands out.
+    GitHub takes no SVG for an avatar, so this is a PNG: 64 x 64 pixels drawn, saved 8 times bigger.
+    GitHub shows it as a circle, so everything that matters sits inside the middle circle."""
+    N, SCALE = 64, 8
+    rnd = random.Random(7)
+    SKIN, SKIN_D, SKIN_DD, PINK = '#e8c4a0', '#c99a74', '#b0855f', '#f2a38a'
+    ACC_D, LIP, OUTL = '#a83c1f', '#8a3b26', '#0a0f0b'
+    c = Canvas()
+
+    # sky in dithered bands, then the disc behind the head
+    if variant == 'night':
+        bands = [(0, INK), (26, '#14261c'), (38, '#1b3326')]
+        far, near = FAR, COLD
+    else:
+        bands = [(0, INK2), (14, '#4a2f2a'), (26, '#8a3b26'), (33, ACCENT), (39, WARM)]
+        far, near = '#4a2f2a', INK2
+    for y in range(N):
+        band = max(i for i, (top, _) in enumerate(bands) if y >= top)
+        col = bands[band][1]
+        if band + 1 < len(bands) and bands[band + 1][0] - y <= 2:
+            for x in range(N):
+                c.set(x, y, bands[band + 1][1] if (x + y) % 2 == 0 else col)
+        else:
+            c.rect(0, y, N, 1, col)
+    MX, MY, R = 32, 25, 20
+    for y in range(-R - 3, R + 4):
+        for x in range(-R - 3, R + 4):
+            d = math.hypot(x, y)
+            if d <= R:
+                if variant == 'night':
+                    col = SOFT if d <= R - 2 else WARM
+                else:
+                    col = HOT if d <= R - 4 else SOFT if d <= R - 1.5 else PAPER
+                c.set(MX + x, MY + y, col)
+            elif d <= R + 2.5 and (x + y) % 2 == 0:           # a dithered glow round it
+                c.set(MX + x, MY + y, MID if variant == 'night' else WARM)
+    if variant == 'night':
+        for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):  # a crater, above the hair
+            c.set(40 + dx, 9 + dy, WARM)
+        for _ in range(26):                                   # stars
+            x, y = rnd.randrange(1, N - 1), rnd.randrange(1, 44)
+            if math.hypot(x - MX, y - MY) > R + 4:
+                c.set(x, y, rnd.choice([PAPER, SOFT, PALE, PALE]))
+        for x, y in ((6, 20), (57, 12), (9, 40), (55, 36)):   # a few bright ones, as plus signs
+            for dx, dy in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+                c.set(x + dx, y + dy, HOT if (dx, dy) == (0, 0) else WARM)
+
+    # the forest on the horizon: far hills, then two rows of firs
+    HZ = 47
+    for x in range(N):
+        h = 4 + round(1.5 * math.sin(x / 5) + math.sin(x / 2.3))
+        c.rect(x, HZ - h, 1, N - HZ + h, far)
+    for x in range(-2, N + 2, 4):
+        pine(c, x, HZ - 1, 7 + rnd.randrange(0, 5), far)
+    for x in range(0, N + 2, 5):
+        pine(c, x + rnd.randrange(-1, 2), HZ + 4, 9 + rnd.randrange(0, 6), near)
+    c.rect(0, HZ + 4, N, N - HZ - 4, near)
+
+    # the character, on its own canvas so it can get a dark outline
+    ch = Canvas()
+    CX, FY = 32, 25                                           # centre line, middle of the face
+
+    def half(y):                                              # hoodie: round shoulders, then straight down
+        return (9, 13, 16, 18, 20)[y - 41] if y < 46 else 22 if y > 54 else 21
+
+    for y in range(41, N):
+        ch.rect(CX - half(y), y, half(y) * 2 + 1, 1, MID)
+    for y in range(44, N):                                    # sleeve seams
+        for side in (-1, 1):
+            ch.set(CX + side * (14 + (y - 44) // 8), y, COLD)
+    for y in range(47, N):                                    # arm shade
+        ch.rect(CX - half(y), y, 2, 1, COLD)
+        ch.rect(CX + half(y) - 1, y, 2, 1, COLD)
+    for dx in range(9, 20):                                   # light on the shoulders
+        y = min(y for y in range(41, N) if half(y) >= dx)
+        for side in (-1, 1):
+            ch.rect(CX + side * dx, y, 1, 2, LEAF)
+    for y in range(37, 47):                                   # the hood, lying round the neck
+        half = (12, 13, 13, 13, 13, 12, 11, 9, 7, 5)[y - 37]
+        ch.rect(CX - half, y, half * 2 + 1, 1, LEAF)
+    for y in range(39, 46):                                   # its opening at the neck, in shadow
+        half = (7, 7, 6, 5, 4, 3, 2)[y - 39]
+        ch.rect(CX - half, y, half * 2 + 1, 1, COLD)
+    for x in range(CX - 12, CX + 13):                         # hood rim
+        ch.set(x, 37 if abs(x - CX) < 12 else 38, MID)
+    ch.rect(CX - 3, 35, 7, 6, SKIN_D)                         # neck
+    ch.rect(CX - 3, 37, 1, 3, SKIN_DD)
+    ch.rect(CX + 3, 37, 1, 3, SKIN_DD)
+    for side in (-1, 1):                                      # drawstrings
+        ch.rect(CX + side * 4, 45, 1, 9, PAPER)
+        ch.rect(CX + side * 4, 54, 1, 2, PALE)
+    ch.rect(CX - 10, 60, 21, 1, COLD)                         # front pocket
+    for i in range(4):
+        ch.set(CX - 10 - i, 60 + i, COLD)
+        ch.set(CX + 10 + i, 60 + i, COLD)
+
+    # headphones round the neck: a round cup on each side, the band going up behind the neck
+    CUP = ['.ooo.', 'oaaao', 'oasao', 'oaaao', 'oaaao', '.ooo.']
+    for side in (-1, 1):
+        x0 = CX + side * 10 - 2
+        for j, row in enumerate(CUP):
+            for i, k in enumerate(row if side < 0 else row[::-1]):
+                if k != '.':
+                    ch.set(x0 + i, 38 + j, {'o': ACC_D, 'a': ACCENT, 's': SOFT}[k])
+        ch.rect(x0 + (4 if side < 0 else 0), 39, 1, 4, INK2)  # the cushion, facing the neck
+        for x, y in ((9, 37), (8, 36), (7, 36), (6, 35), (5, 35)):
+            ch.set(CX + side * x, y, INK2)
+
+    for y in range(-12, 13):                                  # face: full cheeks, a soft chin
+        for x in range(-11, 12):
+            rx = 10.5 if y < 4 else 10.5 - (y - 4) * 0.55
+            if abs(x) <= rx and (x / 10.8) ** 2 + (y / 12.5) ** 2 <= 1.05:
+                ch.set(CX + x, FY + y, SKIN)
+    for side in (-1, 1):                                      # ears
+        ch.rect(CX + side * 11 - (1 if side < 0 else 0), FY + 1, 2, 5, SKIN)
+        ch.set(CX + side * 11, FY + 3, SKIN_D)
+    ch.rect(CX - 6, FY + 12, 13, 1, SKIN_D)                   # under the jaw
+
+    # short dark hair: a cap with a few tufts on top and a fringe swept to the left
+    TUFT = {-6: 1, -5: 2, -4: 1, 0: 1, 1: 2, 2: 3, 3: 1, 6: 1, 7: 1}
+    FRINGE = {-10: 0, -9: -1, -8: -2, -7: -4, -6: -3, -5: -5, -4: -4, -3: -3, -2: -5, -1: -6, 0: -5,
+              1: -4, 2: -6, 3: -7, 4: -6, 5: -4, 6: -5, 7: -4, 8: -2, 9: -1, 10: 0}
+    for x in range(-12, 13):
+        top = round(-4 - 11 * math.sqrt(1 - (x / 12.4) ** 2)) - TUFT.get(x, 0)
+        ch.rect(CX + x, FY + top, 1, FRINGE.get(x, 1) - top, INK)
+    for side in (-1, 1):                                      # sideburns
+        ch.rect(CX + side * 10, FY, 1, 4, INK)
+    for x, y in ((-8, -10), (-7, -11), (-6, -12), (-5, -12), (-4, -13), (-3, -13), (-2, -13), (3, -14), (4, -13),
+                 (-6, -5), (-3, -6), (1, -7), (3, -9), (6, -7), (-1, -8)):   # shine, and strands in the fringe
+        ch.set(CX + x, FY + y, INK2)
+    for x, y in ((-6, -11), (-5, -11), (-4, -12)):
+        ch.set(CX + x, FY + y, MUTED)
+
+    for side in (-1, 1):
+        ex = CX + side * 5 - (1 if side < 0 else 0)
+        ch.rect(ex, FY + 1, 2, 4, OUTL)                       # eyes
+        ch.set(ex + (1 if side < 0 else 0), FY + 1, PAPER)    # catchlight
+        ch.rect(ex - (1 if side < 0 else 0), FY - 2, 3, 1, INK)   # brows
+        ch.rect(CX + side * 7 - (1 if side < 0 else 0), FY + 6, 2, 1, PINK)  # blush
+    ch.set(CX, FY + 6, SKIN_D)                                # nose
+    ch.rect(CX - 1, FY + 9, 3, 1, LIP)                        # a small smile
+    ch.set(CX - 2, FY + 8, LIP)
+    ch.set(CX + 2, FY + 8, LIP)
+
+    for x, y in list(ch.px):                                  # outline, then the character on top
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            if (x + dx, y + dy) not in ch.px:
+                c.set(x + dx, y + dy, OUTL)
+    c.px.update(ch.px)
+
+    if variant == 'night':                                    # fireflies
+        for x, y in ((8, 52), (56, 50), (13, 31), (51, 28)):
+            c.set(x, y, HOT)
+    else:                                                     # two birds
+        for bx, by in ((4, 27), (10, 31)):
+            for dx, dy in ((0, 0), (1, 1), (2, 0), (3, 1), (4, 0)):
+                c.set(bx + dx, by + dy, INK)
+
+    img = Image.new('RGB', (N, N))
+    for y in range(N):
+        for x in range(N):
+            img.putpixel((x, y), ImageColor.getrgb(c.px[(x, y)]))
+    name = 'avatar.png' if variant == 'night' else f'avatar-{variant}.png'
+    img.resize((N * SCALE, N * SCALE), Image.NEAREST).save(OUT / name, optimize=True)
+    print(f'  {name}: {(OUT / name).stat().st_size / 1024:.1f} KiB')
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     print('drawing')
     banner()
     room()
     character()
+    avatar('night')
+    avatar('sunset')
     # a transparent strip, 100% wide: placed after a floated picture it can never fit beside it, so the next
     # section always starts below the picture (GitHub strips the clear attribute from <br>)
     write('clear.svg', '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 1" width="8" height="1" aria-hidden="true"/>')
@@ -926,6 +1098,7 @@ def main():
     card('card-songplay.svg', 'SONGPLAY', 'THREE.JS + YOUTUBE', Image.open(SRC / 'sp-autumn.jpg'))
     card('card-pixelfolio.svg', 'PIXELFOLIO', 'ASTRO + TYPESCRIPT', Image.open(SRC / 'tp-pixelfolio-art.jpg'))
     card('card-viygo.svg', 'VIYGO', 'LARAVEL 12 + MYSQL', viygo_art(94, 50))
+    card('card-lanskara.svg', 'LANSKARA', 'HTML + CSS + JS', Image.open(SRC / 'lanskara-hero.jpg'))
     footer()
 
 
