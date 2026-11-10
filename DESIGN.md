@@ -38,7 +38,7 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 | Tool and social badges | shields.io `for-the-badge`, as GPRM uses it, all in the Hutan colours |
 | Stats and top languages | github-readme-stats on GPRM's mirror (`github-readme-stats.shion.dev`), Hutan colours |
 | Streak | streak-stats (demolab), Hutan colours |
-| Pac-Man graph | `.github/workflows/pacman.yml`, published to the `output` branch |
+| Pac-Man graph | `.github/workflows/pacman.yml`, recoloured in the Hutan palette by a `sed` step, published to the `output` branch |
 | Profile picture (`avatar.png`, `avatar-sunset.png`) | Drawn by `tools/pixel.py`, uploaded by hand in GitHub settings |
 
 The banner is StudyCabin at night as pixel art (lit glass cabin, chimney smoke, aurora, stars, a doe by the pond,
