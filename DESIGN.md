@@ -39,10 +39,13 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 | Stats and top languages | github-readme-stats on GPRM's mirror (`github-readme-stats.shion.dev`), Hutan colours |
 | Streak | streak-stats (demolab), Hutan colours |
 | Pac-Man graph | `.github/workflows/pacman.yml`, published to the `output` branch |
+| Profile picture (`avatar.png`, `avatar-sunset.png`) | Drawn by `tools/pixel.py`, uploaded by hand in GitHub settings |
 
 The banner is StudyCabin at night as pixel art (lit glass cabin, chimney smoke, aurora, stars, a doe by the pond,
 fireflies). The project cards show
 the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, so its card is a drawn pixel map.
+Lanskara (LandingPage-sitev1) is the newest card, from its hero at 1440 (`tools/src/lanskara-hero.jpg`), in a row
+of its own under the other four, centred at half width.
 
 The room is original pixel art in the spirit of the owner's reference (a pixel gamer room), with no characters from
 existing games: the owner from behind at the desk, code on the main screen, a video edit on the second, a photo grid
@@ -54,6 +57,12 @@ In About, the same person from the room (green hoodie, headphones round the neck
 sunset, seen from behind, photographing it, while the wind lifts the hair, the hood and the camera strap and petals
 and birds cross the sky. It floats to the right of the list, and a transparent strip 100% wide after the list (`assets/pixel/clear.svg`) keeps the next section below the picture,
 because GitHub removes the `clear` attribute from `<br>`.
+
+The profile picture is the same person again, now facing the viewer: head and shoulders, the green hoodie with
+the hood round the neck and the headphones resting on it, in front of a big moon over the forest at night
+(`avatar.png`) or the sun at sunset (`avatar-sunset.png`). The disc sits behind the head so the dark hair stands
+out. GitHub takes no SVG for an avatar, so it is a PNG, 64 x 64 pixels saved at 512 x 512, with everything that
+matters inside the circle GitHub crops it to.
 
 Checked on 10 November 2026: the public github-readme-stats, activity-graph and trophy servers were down, so none of
 them is used.
