@@ -44,8 +44,9 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 The banner is StudyCabin at night as pixel art (lit glass cabin, chimney smoke, aurora, stars, a doe by the pond,
 fireflies). The project cards show
 the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, so its card is a drawn pixel map.
-Lanskara (LandingPage-sitev1) is the newest card, from its hero at 1440 (`tools/src/lanskara-hero.jpg`), in a row
-of its own under the other four, centred at half width.
+Lanskara (LandingPage-sitev1) and DBMS Simulation share the last row, each from its hero at 1440
+(`tools/src/lanskara-hero.jpg`, `tools/src/dbms-hero.jpg`). DBMS Simulation's dark hero is too dark to read whole at
+94 x 50 cells, so its card shows the headline and the main button only, unedited.
 
 The room is original pixel art in the spirit of the owner's reference (a pixel gamer room), with no characters from
 existing games: the owner from behind at the desk, code on the main screen, a video edit on the second, a photo grid
