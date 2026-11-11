@@ -1099,6 +1099,9 @@ def main():
     card('card-pixelfolio.svg', 'PIXELFOLIO', 'ASTRO + TYPESCRIPT', Image.open(SRC / 'tp-pixelfolio-art.jpg'))
     card('card-viygo.svg', 'VIYGO', 'LARAVEL 12 + MYSQL', viygo_art(94, 50))
     card('card-lanskara.svg', 'LANSKARA', 'HTML + CSS + JS', Image.open(SRC / 'lanskara-hero.jpg'))
+    # the headline and the main button of its home hero at 1440: the whole hero is too dark to read at 94 x 50
+    card('card-dbms.svg', 'DBMS SIMULATION', 'TYPESCRIPT + VITE',
+         Image.open(SRC / 'dbms-hero.jpg').crop((250, 60, 1190, 560)))
     footer()
 
 
