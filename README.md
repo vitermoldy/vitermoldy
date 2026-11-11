@@ -102,9 +102,13 @@
 </td>
 </tr>
 <tr>
-<td colspan="2" align="center" valign="top">
-  <a href="https://github.com/vitermoldy/LandingPage-sitev1"><img src="assets/pixel/card-lanskara.svg" width="50%" alt="Lanskara, HTML, CSS and JavaScript"></a>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/LandingPage-sitev1"><img src="assets/pixel/card-lanskara.svg" width="100%" alt="Lanskara, HTML, CSS and JavaScript"></a>
   <br>A landing page for a web studio: a design-canvas hero with labelled cursors, a statement that lights up word by word as you scroll, and a block that turns the whole page dark. <a href="https://github.com/vitermoldy/LandingPage-sitev1">Repo</a>
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/DBMS-Simulation"><img src="assets/pixel/card-dbms.svg" width="100%" alt="DBMS Simulation, TypeScript and Vite"></a>
+  <br>A DBMS simulator for the database practicum: a MySQL-dialect SQL engine in the browser that replays every step of a query, from the parser to the result, with 13 lessons to run. <a href="https://github.com/vitermoldy/DBMS-Simulation">Repo</a>
 </td>
 </tr>
 </table>
