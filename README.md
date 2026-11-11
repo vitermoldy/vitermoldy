@@ -24,7 +24,7 @@
 <img src="assets/pixel/character.svg?v=hoodie" align="right" width="44%" alt="Pixel art: Viter in a green hoodie, seen from behind, photographing the sunset in a flower field while the wind lifts the hair, the hood and the camera strap; petals drift past and two birds cross the sky.">
 
 - 🎓 **Information Technology** student
-- 🔭 Currently building **[StudyCabin v2](https://github.com/vitermoldy/StudyCabin-v2)**, a study room in a live 3D forest cabin
+- 🔭 Currently building **[CloudStead](https://github.com/vitermoldy/CloudStead)**, a study island above the clouds that grows while you focus
 - 🌱 Learning more **three.js**, **Laravel 12** and **Astro**
 - 👾 Into pixel art, cozy 3D scenes and the small details
 - 📸 Off the keyboard: photography, event organizing and multimedia
@@ -107,8 +107,8 @@
   <br>A landing page for a web studio: a design-canvas hero with labelled cursors, a statement that lights up word by word as you scroll, and a block that turns the whole page dark. <a href="https://github.com/vitermoldy/LandingPage-sitev1">Repo</a>
 </td>
 <td width="50%" valign="top">
-  <a href="https://github.com/vitermoldy/DBMS-Simulation"><img src="assets/pixel/card-dbms.svg" width="100%" alt="DBMS Simulation, TypeScript and Vite"></a>
-  <br>A DBMS simulator for the database practicum: a MySQL-dialect SQL engine in the browser that replays every step of a query, from the parser to the result, with 13 lessons to run. <a href="https://github.com/vitermoldy/DBMS-Simulation">Repo</a>
+  <a href="https://github.com/vitermoldy/CloudStead"><img src="assets/pixel/card-cloudstead.svg" width="100%" alt="CloudStead, three.js and TypeScript"></a>
+  <br>A study island above the clouds: while your focus timer runs, VMK hauls up new cells, plants and builds, from 9 cells to 37 over 23 hours of focus, with your own YouTube music. <a href="https://github.com/vitermoldy/CloudStead">Repo</a>
 </td>
 </tr>
 </table>
@@ -128,7 +128,7 @@
   <img height="165" src="https://github-readme-stats.shion.dev/api/top-langs/?username=vitermoldy&layout=compact&langs_count=6&border_radius=0&bg_color=121a14&title_color=fff36b&text_color=eef0e6&border_color=1f6e44" alt="Most used languages">
 </p>
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=vitermoldy&border_radius=0&background=121A14&border=1F6E44&ring=F0B429&fire=E4572E&currStreakNum=FFF36B&sideNums=EEF0E6&currStreakLabel=F0B429&sideLabels=AAB6A5&dates=AAB6A5&stroke=1F6E44" alt="GitHub streak">
+  <img src="https://raw.githubusercontent.com/vitermoldy/vitermoldy/output/streak.svg" alt="GitHub streak in pixel art: total contributions, current and longest streak, and the last 30 days, redrawn every hour">
 </p>
 
 <h2><img src="assets/pixel/h-graph.svg" height="40" alt="Contributions"></h2>
