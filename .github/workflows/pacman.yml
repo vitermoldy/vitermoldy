@@ -1,6 +1,6 @@
 name: Pac-Man contribution graph and streak card
 
-# Draws Pac-Man eating your contribution graph and the pixel streak card, and puts the SVGs on the
+# Draws Pac-Man eating your contribution graph and the streak card, and puts the SVGs on the
 # "output" branch, so the README can show them. The main branch is never touched by this workflow.
 # Both are drawn in one run because the output branch is replaced as a whole on every publish.
 # It redraws every hour, so new commits in any of your public repositories show up within about an hour.
@@ -50,18 +50,17 @@ jobs:
             -e 's/#000000/#121a14/Ig' -e 's/#57606a/#4f5b4d/Ig' \
             dist/pacman-contribution-graph.svg
 
-      # The streak card is pixel art drawn by tools/streak.py from the public contribution calendar
-      # (the same numbers the profile shows). If GitHub's page cannot be read, the run stops here and
-      # the output branch keeps the last good card and graphs.
+      # The streak card is drawn by tools/streak.py from the public contribution calendar (the same
+      # numbers the profile shows), in the classic streak-card layout. It needs only Python's standard
+      # library. If GitHub's page cannot be read, the run stops here and the output branch keeps the
+      # last good card and graphs.
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Draw the streak card
-        run: |
-          pip install --quiet pillow fonttools
-          python tools/streak.py --user ${{ github.repository_owner }} --out dist/streak.svg
+        run: python tools/streak.py --user ${{ github.repository_owner }} --out dist/streak.svg
 
       - name: Publish them to the output branch
         uses: crazy-max/ghaction-github-pages@v5
