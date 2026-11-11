@@ -128,7 +128,7 @@
   <img height="165" src="https://github-readme-stats.shion.dev/api/top-langs/?username=vitermoldy&layout=compact&langs_count=6&border_radius=0&bg_color=121a14&title_color=fff36b&text_color=eef0e6&border_color=1f6e44" alt="Most used languages">
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/vitermoldy/vitermoldy/output/streak.svg" alt="GitHub streak in pixel art: total contributions, current and longest streak, and the last 30 days, redrawn every hour">
+  <img src="https://raw.githubusercontent.com/vitermoldy/vitermoldy/output/streak.svg" alt="GitHub streak: total contributions, current streak and longest streak, redrawn every hour">
 </p>
 
 <h2><img src="assets/pixel/h-graph.svg" height="40" alt="Contributions"></h2>
