@@ -37,16 +37,17 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 | Visitor counter | komarev, as GPRM uses it |
 | Tool and social badges | shields.io `for-the-badge`, as GPRM uses it, all in the Hutan colours |
 | Stats and top languages | github-readme-stats on GPRM's mirror (`github-readme-stats.shion.dev`), Hutan colours |
-| Streak | streak-stats (demolab), Hutan colours |
+| Streak | Drawn by `tools/streak.py` as pixel art (Tiny5, Hutan colours, a flickering flame, the last 30 days) from the public contribution calendar; `pacman.yml` redraws it every hour and publishes it to the `output` branch |
 | Pac-Man graph | `.github/workflows/pacman.yml`, recoloured in the Hutan palette by a `sed` step, published to the `output` branch |
 | Profile picture (`avatar.png`, `avatar-sunset.png`) | Drawn by `tools/pixel.py`, uploaded by hand in GitHub settings |
 
 The banner is StudyCabin at night as pixel art (lit glass cabin, chimney smoke, aurora, stars, a doe by the pond,
 fireflies). The project cards show
 the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, so its card is a drawn pixel map.
-Lanskara (LandingPage-sitev1) and DBMS Simulation share the last row, each from its hero at 1440
-(`tools/src/lanskara-hero.jpg`, `tools/src/dbms-hero.jpg`). DBMS Simulation's dark hero is too dark to read whole at
-94 x 50 cells, so its card shows the headline and the main button only, unedited.
+Lanskara (LandingPage-sitev1) and CloudStead share the last row: Lanskara from its hero at 1440
+(`tools/src/lanskara-hero.jpg`), CloudStead from its finished island at sunset without the interface
+(`tools/src/cloudstead-island.jpg`, the `?pratinjau=1400` view at 1600 x 1000). DBMS Simulation is left out
+while its repository is private, so no card leads to a page visitors cannot open.
 
 The room is original pixel art in the spirit of the owner's reference (a pixel gamer room), with no characters from
 existing games: the owner from behind at the desk, code on the main screen, a video edit on the second, a photo grid
