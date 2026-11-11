@@ -37,7 +37,7 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 | Visitor counter | komarev, as GPRM uses it |
 | Tool and social badges | shields.io `for-the-badge`, as GPRM uses it, all in the Hutan colours |
 | Stats and top languages | github-readme-stats on GPRM's mirror (`github-readme-stats.shion.dev`), Hutan colours |
-| Streak | Drawn by `tools/streak.py` as pixel art (Tiny5, Hutan colours, a flickering flame, the last 30 days) from the public contribution calendar; `pacman.yml` redraws it every hour and publishes it to the `output` branch |
+| Streak | The classic streak-card layout (495 x 195, Hutan colours) drawn by `tools/streak.py` from the public contribution calendar; `pacman.yml` redraws it every hour and publishes it to the `output` branch. It replaced streak-stats (demolab), whose cache kept showing old totals for hours (17,231 against GitHub's 36,586 on 12 November 2026) |
 | Pac-Man graph | `.github/workflows/pacman.yml`, recoloured in the Hutan palette by a `sed` step, published to the `output` branch |
 | Profile picture (`avatar.png`, `avatar-sunset.png`) | Drawn by `tools/pixel.py`, uploaded by hand in GitHub settings |
 
