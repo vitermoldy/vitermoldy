@@ -1,28 +1,29 @@
-"""Draws the profile's GitHub streak card as pixel art, from the public contribution calendar.
+"""Draws the profile's GitHub streak card from the public contribution calendar.
 
     python tools/streak.py --out dist/streak.svg              read GitHub, draw the card
     python tools/streak.py --out dist/streak.svg --user name  someone else's calendar
     python tools/streak.py --html saved.html --out x.svg      draw from saved calendar pages (offline check)
 
-The Pac-Man workflow runs it every hour and publishes the card to the "output" branch with the
-graphs, so every number on it comes from GitHub itself. It reads the same public calendar the
-profile page shows (github.com/users/<name>/contributions), year by year, so it needs no token.
-Needs Pillow and fontTools (pixel.py draws the type and the plate).
+The card has the classic streak-card layout (total contributions, the current streak in a ring
+with a flame, the longest streak) at 495 x 195, in the profile's Hutan colours. The Pac-Man
+workflow redraws it every hour and publishes it to the "output" branch with the graphs, so the
+numbers come straight from GitHub and never sit in a third-party cache for hours. It reads the
+same public calendar the profile page shows (github.com/users/<name>/contributions), year by
+year, so it needs no token and nothing beyond Python's standard library.
 """
 import argparse
 import datetime as dt
 import re
-import sys
 import time
 import urllib.request
+from html import escape
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pixel import (ACCENT, COLD, HOT, INK, MID, PALE, PAPER, T5, WARM, Canvas, document, plate)  # noqa: E402
-
-# The contribution graph's five steps in the Hutan palette, the same as the recoloured Pac-Man graph.
-LEVELS = ['#1b271e', '#174f35', '#1f6e44', '#2f8a55', '#52c879']
-MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+# Hutan colours, the same as the stats cards above the streak card (DESIGN.md).
+BG, BORDER, RING, FIRE = '#121a14', '#1f6e44', '#f0b429', '#e4572e'
+CUR_NUM, SIDE_NUM, CUR_LABEL, SIDE_LABEL, DATES = '#fff36b', '#eef0e6', '#f0b429', '#aab6a5', '#aab6a5'
+FONT = '"Segoe UI", Ubuntu, sans-serif'
+MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 DAY = re.compile(r'<td\b[^>]*\bContributionCalendar-day\b[^>]*>')
 TIP = re.compile(r'<tool-tip\b[^>]*\bfor="([^"]+)"[^>]*>([^<]*)</tool-tip>')
@@ -99,106 +100,61 @@ def stats(days, today):
         'total': total, 'first': first,
         'current': cur, 'cur_from': end - dt.timedelta(days=cur - 1) if cur else None, 'cur_to': end if cur else None,
         'longest': longest, 'long_from': best_end - dt.timedelta(days=longest - 1) if longest else None, 'long_to': best_end,
-        'recent': [(today - dt.timedelta(days=i), days.get(today - dt.timedelta(days=i), (0, 0))) for i in range(29, -1, -1)],
         'today': days.get(today, (0, 0))[0],
     }
 
 
-def day(d):
-    return f'{MONTHS[d.month - 1]} {d.day}'
+def day(d, today):
+    """Nov 4 this year, Nov 4, 2025 before it."""
+    return f'{MONTHS[d.month - 1]} {d.day}' + ('' if d.year == today.year else f', {d.year}')
 
 
-def span(a, b):
+def span(a, b, today):
     if not a:
-        return 'NO STREAK YET'
-    return day(a) if a == b else f'{day(a)} - {day(b)}'
+        return 'No streak yet'
+    return day(a, today) if a == b else f'{day(a, today)} - {day(b, today)}'
 
 
-def centred(c, cx, base, text, colour, k=1):
-    c.text(cx - (T5.width(text, k) + 1) // 2, base, text, colour, k)
+def text(x, y, value, colour, size, weight=400):
+    return (f'<text x="{x}" y="{y}" text-anchor="middle" fill="{colour}" font-family=\'{FONT}\' '
+            f'font-weight="{weight}" font-size="{size}px">{escape(value)}</text>')
 
 
-def fit(options, width, k=1):
-    """The first wording that fits the column."""
-    for o in options:
-        if T5.width(o, k) <= width:
-            return o
-    return options[-1]
-
-
-# 8 x 10 flame, two frames that flicker.
-FLAME = [
-    ['...a....', '..aa....', '..aaa.a.', '.aaaaaa.', '.aawaaa.', 'aawwwaaa', 'aawywwaa', 'aawyywaa', '.awyywa.', '..aaaa..'],
-    ['....a...', '....aa..', '.a.aaa..', '.aaaaaa.', '.aaawaa.', 'aaawwwaa', 'aawwywaa', 'aawyywaa', '.awyywa.', '..aaaa..'],
-]
-FLAME_KEYS = {'a': ACCENT, 'w': WARM, 'y': HOT}
-
-
-def draw(s, user):
-    W, H = 300, 104
-    col = W // 3
-    c = Canvas()
-    plate(c, W, H)
-    for x in (col, col * 2):
-        c.rect(x, 10, 1, 58, MID)
-    c.rect(8, 78, W - 16, 1, MID)
-
-    # Left: everything counted.
-    centred(c, col // 2, 34, f'{s["total"]:,}', PAPER, 2)
-    centred(c, col // 2, 48, fit(['TOTAL CONTRIBUTIONS', 'CONTRIBUTIONS'], col - 8), PALE)
-    since = fit([f'{day(s["first"])}, {s["first"].year} - NOW', f'{MONTHS[s["first"].month - 1]} {s["first"].year} - NOW'], col - 8)
-    centred(c, col // 2, 60, since, PALE)
-
-    # Middle: the current streak in a ring, a flame on top.
-    cx, cy, r = col + col // 2, 32, 19
-    for y in range(cy - r, cy + r + 1):
-        for x in range(cx - r, cx + r + 1):
-            dd = ((x + 0.5 - cx) ** 2 + (y + 0.5 - cy) ** 2) ** 0.5
-            if r - 2 <= dd < r and not (abs(x + 0.5 - cx) < 6 and y < cy):
-                c.set(x, y, WARM)
-    centred(c, cx, cy + 8, str(s['current']), HOT, 3)
-    centred(c, cx, 62, 'CURRENT STREAK', WARM)
-    centred(c, cx, 73, span(s['cur_from'], s['cur_to']), PALE)
-
-    # Right: the best run so far.
-    rx = col * 2 + col // 2
-    centred(c, rx, 34, str(s['longest']), PAPER, 2)
-    centred(c, rx, 48, 'LONGEST STREAK', PALE)
-    centred(c, rx, 60, span(s['long_from'], s['long_to']), PALE)
-
-    # Bottom: the last 30 days, oldest to today, coloured like the graph.
-    label = 'LAST 30 DAYS'
-    today_txt = f'TODAY {s["today"]:,}'
-    c.text(10, 95, label, PALE)
-    tw = T5.width(today_txt)
-    c.text(W - 10 - tw, 95, today_txt, HOT if s['today'] else PALE)
-    x0 = 10 + T5.width(label) + 8
-    room = W - 10 - tw - 8 - x0
-    step = max(4, min(7, room // 30))
-    size = step - 1
-    x = x0 + (room - step * 30 + 1) // 2
-    for i, (d, (count, level)) in enumerate(s['recent']):
-        c.rect(x + i * step, 89, size, size, LEVELS[max(0, min(4, level))] if count else LEVELS[0])
-        if i == 29:
-            c.rect(x + i * step, 89 + size + 1, size, 1, WARM)
-
-    flames = []
-    for frame in FLAME:
-        f = Canvas()
-        for j, row in enumerate(frame):
-            for i, ch in enumerate(row):
-                if ch in FLAME_KEYS:
-                    f.set(cx - 4 + i, cy - r - 6 + j, FLAME_KEYS[ch])
-        flames.append(f)
-
-    title = (f'{user} on GitHub: {s["total"]:,} contributions since {day(s["first"]).title()}, {s["first"].year}; '
-             f'current streak {s["current"]} days ({span(s["cur_from"], s["cur_to"]).title()}); '
-             f'longest streak {s["longest"]} days; {s["today"]:,} today.')
-    # The two flame frames take turns; with motion reduced only the first one shows.
-    css = ('.f1{opacity:0}.f0,.f1{animation:fl .9s steps(1) infinite}.f1{animation-delay:-.45s}'
-           '@keyframes fl{0%{opacity:1}50%{opacity:0}100%{opacity:0}}')
-    body = c.svg() + flames[0].svg('f0') + flames[1].svg('f1')
-    return document(W, H, 3, title, body, css)
+def draw(s, user, today):
+    first = s['first']
+    since = f'{MONTHS[first.month - 1]} {first.day}, {first.year} - Present'
+    cur = span(s['cur_from'], s['cur_to'], today)
+    best = span(s['long_from'], s['long_to'], today)
+    title = (f'{user} on GitHub: {s["total"]:,} contributions since {MONTHS[first.month - 1]} {first.day}, {first.year}; '
+             f'current streak {s["current"]} days ({cur}); longest streak {s["longest"]} days ({best}).')
+    # A flame drawn for this card: a teardrop with a second tongue on its left.
+    flame = ('M 1.5 0 C 3 4 8.5 7.5 8.5 14 C 8.5 18.7 4.7 22.5 0 22.5 C -4.7 22.5 -8.5 18.7 -8.5 14 '
+             'C -8.5 10.2 -6.6 7.4 -4.6 5.3 C -4.4 8.2 -2.9 10.2 -0.8 10.2 C 1.6 10.2 2.6 8 2.6 5.8 C 2.6 3.6 2 1.6 1.5 0 Z')
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 495 195" width="495" height="195" role="img" aria-labelledby="t">',
+        f'<title id="t">{escape(title)}</title>',
+        '<defs><mask id="ring-gap"><rect width="495" height="195" fill="white"/>'
+        '<ellipse cx="247.5" cy="32" rx="13" ry="18" fill="black"/></mask></defs>',
+        f'<rect x="0.5" y="0.5" width="494" height="194" fill="{BG}" stroke="{BORDER}"/>',
+        f'<line x1="165" y1="28" x2="165" y2="170" stroke="{BORDER}"/>',
+        f'<line x1="330" y1="28" x2="330" y2="170" stroke="{BORDER}"/>',
+        # Left: everything counted since the first contribution.
+        text(82.5, 80, f'{s["total"]:,}', SIDE_NUM, 28, 700),
+        text(82.5, 116, 'Total Contributions', SIDE_LABEL, 14),
+        text(82.5, 146, since, DATES, 12),
+        # Middle: the current streak in a ring, the flame in the gap at the top.
+        f'<circle cx="247.5" cy="71" r="40" fill="none" stroke="{RING}" stroke-width="5" mask="url(#ring-gap)"/>',
+        f'<path transform="translate(247.5 19.5)" d="{flame}" fill="{FIRE}"/>',
+        text(247.5, 80, str(s['current']), CUR_NUM, 28, 700),
+        text(247.5, 140, 'Current Streak', CUR_LABEL, 14, 700),
+        text(247.5, 166, cur, DATES, 12),
+        # Right: the best run so far.
+        text(412.5, 80, str(s['longest']), SIDE_NUM, 28, 700),
+        text(412.5, 116, 'Longest Streak', SIDE_LABEL, 14),
+        text(412.5, 146, best, DATES, 12),
+        '</svg>',
+    ]
+    return ''.join(parts)
 
 
 def main():
@@ -219,7 +175,7 @@ def main():
     s = stats(days, today)
     out = Path(a.out)
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(draw(s, a.user), encoding='utf-8')
+    out.write_text(draw(s, a.user, today), encoding='utf-8')
     print(f'{out}: total {s["total"]:,}, current {s["current"]}, longest {s["longest"]}, today {s["today"]:,}')
 
 
