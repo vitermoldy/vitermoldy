@@ -1101,6 +1101,9 @@ def main():
     card('card-lanskara.svg', 'LANSKARA', 'HTML + CSS + JS', Image.open(SRC / 'lanskara-hero.jpg'))
     # the finished island at sunset, without the interface (its ?pratinjau=1400 view at 1600 x 1000)
     card('card-cloudstead.svg', 'CLOUDSTEAD', 'THREE.JS + TYPESCRIPT', Image.open(SRC / 'cloudstead-island.jpg'))
+    # the Studio Video machine alone, interface hidden, at 1600 x 852; cropped to the five stations
+    card('card-agentic-factory.svg', 'AGENTIC FACTORY', 'THREE.JS + REACT',
+         Image.open(SRC / 'agentic-factory.jpg').crop((430, 135, 1230, 560)))
     footer()
 
 
