@@ -49,6 +49,7 @@
 <p align="center"><b>FRONTEND AND 3D</b></p>
 <p align="center">
   <img src="https://img.shields.io/badge/Three.js-0f3d2e?style=for-the-badge&logo=threedotjs&logoColor=fff36b" alt="Three.js">
+  <img src="https://img.shields.io/badge/React-0f3d2e?style=for-the-badge&logo=react&logoColor=fff36b" alt="React">
   <img src="https://img.shields.io/badge/Astro-0f3d2e?style=for-the-badge&logo=astro&logoColor=fff36b" alt="Astro">
   <img src="https://img.shields.io/badge/Vite-0f3d2e?style=for-the-badge&logo=vite&logoColor=fff36b" alt="Vite">
   <img src="https://img.shields.io/badge/Tailwind_CSS-0f3d2e?style=for-the-badge&logo=tailwindcss&logoColor=fff36b" alt="Tailwind CSS">
@@ -81,6 +82,12 @@
 <h2><img src="assets/pixel/h-projects.svg" height="40" alt="Projects"></h2>
 
 <table>
+<tr>
+<td colspan="2" align="center" valign="top">
+  <a href="https://github.com/vitermoldy/idle-Agent-factory"><img src="assets/pixel/card-agentic-factory.svg" width="50%" alt="Agentic Factory, three.js and React"></a>
+  <br>An idle game on a 3D machine: five production lines run by agents, from a video studio to an e-book publisher. Every product you add builds its own plate beside the others, and the slowest station sets the pace. <a href="https://github.com/vitermoldy/idle-Agent-factory">Repo</a>
+</td>
+</tr>
 <tr>
 <td width="50%" valign="top">
   <a href="https://github.com/vitermoldy/StudyCabin-v2"><img src="assets/pixel/card-studycabin.svg" width="100%" alt="StudyCabin, three.js and Vite"></a>
