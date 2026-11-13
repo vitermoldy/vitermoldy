@@ -1104,6 +1104,10 @@ def main():
     # the Studio Video machine alone, interface hidden, at 1600 x 852; cropped to the five stations
     card('card-agentic-factory.svg', 'AGENTIC FACTORY', 'THREE.JS + REACT',
          Image.open(SRC / 'agentic-factory.jpg').crop((430, 135, 1230, 560)))
+    # a level 48 legion against Crimson Breach, the arena alone at 1408 x 845; cropped tight to the clash so
+    # the shadow drake and the demon line stay readable at 94 x 50 cells
+    card('card-nyxborne.svg', 'NYXBORNE', 'REACT + NODE + MYSQL',
+         Image.open(SRC / 'nyxborne-battle.jpg').crop((430, 120, 1240, 551)))
     footer()
 
 
