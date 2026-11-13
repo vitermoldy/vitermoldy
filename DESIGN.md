@@ -46,11 +46,14 @@ fireflies). The project cards show
 the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, so its card is a drawn pixel map.
 Lanskara (LandingPage-sitev1) and CloudStead share the last row: Lanskara from its hero at 1440
 (`tools/src/lanskara-hero.jpg`), CloudStead from its finished island at sunset without the interface
-(`tools/src/cloudstead-island.jpg`, the `?pratinjau=1400` view at 1600 x 1000). Agentic Factory
-(idle-Agent-factory), the newest, leads the table on a row of its own so the 2 x 3 grid below stays whole: the
-Studio Video machine with the game interface hidden (`tools/src/agentic-factory.jpg`, 1600 x 852), cropped to its
-five stations. Its React badge joins the tool rows because that repository is public. DBMS Simulation is left out
-while its repository is private, so no card leads to a page visitors cannot open.
+(`tools/src/cloudstead-island.jpg`, the `?pratinjau=1400` view at 1600 x 1000). The two newest share the top
+row, so the table is a whole 2 x 4 grid: Nyxborne (repository Nyxborn) on the left, from its battle arena alone
+with a level 48 legion fighting Crimson Breach (`tools/src/nyxborne-battle.jpg`, 1408 x 845), cropped tight to the
+clash so the shadow drake and the demon line stay readable at card size; and Agentic Factory (idle-Agent-factory)
+on the right, the Studio Video machine with the game interface hidden (`tools/src/agentic-factory.jpg`,
+1600 x 852), cropped to its five stations. The About list's "currently building" line points at Nyxborne. DBMS
+Simulation is left out while its repository is private, and the same holds for Nyxborn: its card goes live only
+once that repository is public, so no card leads to a page visitors cannot open.
 
 The room is original pixel art in the spirit of the owner's reference (a pixel gamer room), with no characters from
 existing games: the owner from behind at the desk, code on the main screen, a video edit on the second, a photo grid
