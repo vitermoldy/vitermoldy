@@ -24,7 +24,7 @@
 <img src="assets/pixel/character.svg?v=hoodie" align="right" width="44%" alt="Pixel art: Viter in a green hoodie, seen from behind, photographing the sunset in a flower field while the wind lifts the hair, the hood and the camera strap; petals drift past and two birds cross the sky.">
 
 - 🎓 **Information Technology** student
-- 🔭 Currently building **[CloudStead](https://github.com/vitermoldy/CloudStead)**, a study island above the clouds that grows while you focus
+- 🔭 Currently building **[Nyxborne](https://github.com/vitermoldy/Nyxborn)**, a dark-fantasy summoner RPG where every monster you beat can rise again in your army
 - 🌱 Learning more **three.js**, **Laravel 12** and **Astro**
 - 👾 Into pixel art, cozy 3D scenes and the small details
 - 📸 Off the keyboard: photography, event organizing and multimedia
@@ -83,8 +83,12 @@
 
 <table>
 <tr>
-<td colspan="2" align="center" valign="top">
-  <a href="https://github.com/vitermoldy/idle-Agent-factory"><img src="assets/pixel/card-agentic-factory.svg" width="50%" alt="Agentic Factory, three.js and React"></a>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/Nyxborn"><img src="assets/pixel/card-nyxborne.svg" width="100%" alt="Nyxborne, React, Node and MySQL"></a>
+  <br>A dark-fantasy summoner RPG in the browser. Beaten monsters rise as Nyxborne and stack into colonies hundreds strong, across 124 sub-gates from rank E to Monarch. Match results and a recap are kept in MySQL, with a super admin panel. <a href="https://github.com/vitermoldy/Nyxborn">Repo</a>
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/idle-Agent-factory"><img src="assets/pixel/card-agentic-factory.svg" width="100%" alt="Agentic Factory, three.js and React"></a>
   <br>An idle game on a 3D machine: five production lines run by agents, from a video studio to an e-book publisher. Every product you add builds its own plate beside the others, and the slowest station sets the pace. <a href="https://github.com/vitermoldy/idle-Agent-factory">Repo</a>
 </td>
 </tr>
