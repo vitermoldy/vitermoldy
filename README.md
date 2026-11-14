@@ -84,6 +84,16 @@
 <table>
 <tr>
 <td width="50%" valign="top">
+  <img src="assets/pixel/card-mixer.svg" width="100%" alt="Mixer Simulation, Web Audio and PyTorch">
+  <br>A mixing desk to learn on, with four consoles that work like a Midas M32, a Yamaha TF, an Allen &amp; Heath SQ and an analog board. Load stems or split any song into vocals, drums, bass and the rest with Demucs, then set gain, EQ, gate, compressor, sends and faders while nine lessons read your meters. Still in development, so the repository is private for now.
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/Network-Simulation"><img src="assets/pixel/card-netsim.svg" width="100%" alt="Network Simulation, three.js and MySQL"></a>
+  <br>A 3D network lab in the spirit of Packet Tracer: follow one web request from a laptop through a switch, routers and a DNS server, plug and pull cables, switch a router off and watch the others find a new path, with an IOS-style CLI and runs kept in MySQL. <a href="https://github.com/vitermoldy/Network-Simulation">Repo</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
   <img src="assets/pixel/card-nyxborne.svg" width="100%" alt="Nyxborne v2, React, canvas and MySQL">
   <br>A dark-fantasy summoner RPG in pixel art. The hunter wears whatever you equip, 36 monsters walk and strike, and every sprite is painted by code. Beaten monsters rise as Nyxborne and stack into colonies hundreds strong, across 124 sub-gates from rank E to Monarch, with match results kept in MySQL. Still in development, so the repository is private for now.
 </td>
