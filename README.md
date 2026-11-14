@@ -24,7 +24,7 @@
 <img src="assets/pixel/character.svg?v=hoodie" align="right" width="44%" alt="Pixel art: Viter in a green hoodie, seen from behind, photographing the sunset in a flower field while the wind lifts the hair, the hood and the camera strap; petals drift past and two birds cross the sky.">
 
 - 🎓 **Information Technology** student
-- 🔭 Currently building **[Nyxborne v2](https://github.com/vitermoldy/Nyxborn-v2)**, a pixel-art summoner RPG where every monster you beat can rise again in your army
+- 🔭 Currently building **Nyxborne v2**, a pixel-art summoner RPG where every monster you beat can rise again in your army
 - 🌱 Learning more **three.js**, **Laravel 12** and **Astro**
 - 👾 Into pixel art, cozy 3D scenes and the small details
 - 📸 Off the keyboard: photography, event organizing and multimedia
@@ -84,8 +84,8 @@
 <table>
 <tr>
 <td width="50%" valign="top">
-  <a href="https://github.com/vitermoldy/Nyxborn-v2"><img src="assets/pixel/card-nyxborne.svg" width="100%" alt="Nyxborne v2, React, canvas and MySQL"></a>
-  <br>A dark-fantasy summoner RPG in pixel art. The hunter wears whatever you equip, 36 monsters walk and strike, and every sprite is painted by code. Beaten monsters rise as Nyxborne and stack into colonies hundreds strong, across 124 sub-gates from rank E to Monarch, with match results kept in MySQL. <a href="https://github.com/vitermoldy/Nyxborn">v1</a>, <a href="https://github.com/vitermoldy/Nyxborn-v2">v2</a>
+  <img src="assets/pixel/card-nyxborne.svg" width="100%" alt="Nyxborne v2, React, canvas and MySQL">
+  <br>A dark-fantasy summoner RPG in pixel art. The hunter wears whatever you equip, 36 monsters walk and strike, and every sprite is painted by code. Beaten monsters rise as Nyxborne and stack into colonies hundreds strong, across 124 sub-gates from rank E to Monarch, with match results kept in MySQL. Still in development, so the repository is private for now.
 </td>
 <td width="50%" valign="top">
   <a href="https://github.com/vitermoldy/idle-Agent-factory"><img src="assets/pixel/card-agentic-factory.svg" width="100%" alt="Agentic Factory, three.js and React"></a>
