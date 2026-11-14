@@ -32,7 +32,7 @@ letters are real pixels taken from Tiny5's glyph outlines, so they stay sharp at
 | Piece | Source |
 | --- | --- |
 | Banner, the room, the sunset field, section headers, project cards, footer | Drawn by `tools/pixel.py` into `assets/pixel/` |
-| Creative skill badges (photography, event organizer, multimedia) | shields.io with small icons drawn for them (simple-icons has none) |
+| Creative skill badges (photography, event organizer, multimedia) and Web Audio API | shields.io with small icons drawn for them (simple-icons has none); Web Audio API is five waveform bars |
 | Typing line | readme-typing-svg (demolab), in Tiny5, yellow in dark mode and green in light mode |
 | Visitor counter | komarev, as GPRM uses it |
 | Tool and social badges | shields.io `for-the-badge`, as GPRM uses it, all in the Hutan colours |
@@ -96,7 +96,9 @@ so these are kept on purpose (antislop R-37):
   stop moving under `prefers-reduced-motion`;
 - pictures without a `height` attribute: with one, GitHub's stylesheet stretches them on a phone (antislop R-40).
 
-Still held: every number comes from GitHub itself, every tool listed is used in a public repository, every link was
+Still held: every number comes from GitHub itself, every tool listed is used in a repository the profile shows
+(a public one, or a private one whose card says it is in development: Web Audio API and PyTorch come from Mixer
+Simulation; Python also runs this profile's own `tools/`), every link was
 checked, every picture has alt text, and no text was invented about the owner beyond the About list, which the owner should
 confirm.
 
