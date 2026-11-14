@@ -1109,6 +1109,13 @@ def main():
     # 94 x 50, so every cell of the card is one pixel of the game
     card('card-nyxborne.svg', 'NYXBORNE V2', 'REACT + CANVAS + MYSQL',
          Image.open(SRC / 'nyxborne-v2-arena.png').crop((104, 100, 198, 150)))
+    # the Analog 16 console while the demo song plays, at 1600 x 1000: all 16 strips from GAIN down to AUX 2,
+    # so the red, green and yellow rows of knobs read as a mixer even at 94 x 50
+    card('card-mixer.svg', 'MIXER SIMULATION', 'WEB AUDIO + PYTORCH',
+         Image.open(SRC / 'mixer-analog.jpg').crop((0, 0, 952, 506)))
+    # the 3D lab bench with the interface and labels hidden, camera two steps closer, at 1600 x 1000
+    card('card-netsim.svg', 'NETWORK SIMULATION', 'THREE.JS + MYSQL',
+         Image.open(SRC / 'netsim-bench.jpg').crop((70, 160, 1060, 687)))
     footer()
 
 
