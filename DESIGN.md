@@ -52,10 +52,12 @@ right, the Studio Video machine with the game interface hidden (`tools/src/agent
 cropped to its five stations. The Nyxborne card shows v2 (repository Nyxborn-v2), which is pixel art itself, so
 its picture is not reduced at all: one frame of the arena canvas at art resolution (`tools/src/nyxborne-v2-arena.png`,
 352 x 211), the hunter in the eclipse mantle inside his shadow legion as the Crimson Breach demons close in, cropped
-to exactly 94 x 50 so each card cell is one pixel of the game. Like StudyCabin, the card links the newest version
-and the text links both (Nyxborn and Nyxborn-v2). The About list's "currently building" line points at Nyxborne
-v2. DBMS Simulation is left out while its repository is private, and the same holds for Nyxborn and Nyxborn-v2:
-the profile goes out only once both are public, so no card leads to a page visitors cannot open.
+to exactly 94 x 50 so each card cell is one pixel of the game. While Nyxborn and Nyxborn-v2 are private (the owner's decision,
+the game is still in development) the card has no links: the picture is not wrapped in a link, the text ends with
+a plain note that the repository is private, and the About list's "currently building" line names Nyxborne v2
+without a link, so nothing leads to a page visitors cannot open. When both repositories go public, wrap the
+picture in a link to Nyxborn-v2 and link both versions in the text, like StudyCabin. DBMS Simulation is left out
+while its repository is private.
 
 The room is original pixel art in the spirit of the owner's reference (a pixel gamer room), with no characters from
 existing games: the owner from behind at the desk, code on the main screen, a video edit on the second, a photo grid
