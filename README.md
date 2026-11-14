@@ -42,6 +42,7 @@
   <img src="https://img.shields.io/badge/JavaScript-0f3d2e?style=for-the-badge&logo=javascript&logoColor=fff36b" alt="JavaScript">
   <img src="https://img.shields.io/badge/TypeScript-0f3d2e?style=for-the-badge&logo=typescript&logoColor=fff36b" alt="TypeScript">
   <img src="https://img.shields.io/badge/PHP-0f3d2e?style=for-the-badge&logo=php&logoColor=fff36b" alt="PHP">
+  <img src="https://img.shields.io/badge/Python-0f3d2e?style=for-the-badge&logo=python&logoColor=fff36b" alt="Python">
   <img src="https://img.shields.io/badge/HTML5-0f3d2e?style=for-the-badge&logo=html5&logoColor=fff36b" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS-0f3d2e?style=for-the-badge&logo=css&logoColor=fff36b" alt="CSS">
 </p>
@@ -53,6 +54,7 @@
   <img src="https://img.shields.io/badge/Astro-0f3d2e?style=for-the-badge&logo=astro&logoColor=fff36b" alt="Astro">
   <img src="https://img.shields.io/badge/Vite-0f3d2e?style=for-the-badge&logo=vite&logoColor=fff36b" alt="Vite">
   <img src="https://img.shields.io/badge/Tailwind_CSS-0f3d2e?style=for-the-badge&logo=tailwindcss&logoColor=fff36b" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Alpine.js-0f3d2e?style=for-the-badge&logo=alpinedotjs&logoColor=fff36b" alt="Alpine.js">
 </p>
 
 <p align="center"><b>BACKEND AND DATABASE</b></p>
@@ -60,6 +62,7 @@
   <img src="https://img.shields.io/badge/Laravel-0f3d2e?style=for-the-badge&logo=laravel&logoColor=fff36b" alt="Laravel">
   <img src="https://img.shields.io/badge/Livewire-0f3d2e?style=for-the-badge&logo=livewire&logoColor=fff36b" alt="Livewire">
   <img src="https://img.shields.io/badge/Node.js-0f3d2e?style=for-the-badge&logo=nodedotjs&logoColor=fff36b" alt="Node.js">
+  <img src="https://img.shields.io/badge/Express-0f3d2e?style=for-the-badge&logo=express&logoColor=fff36b" alt="Express">
   <img src="https://img.shields.io/badge/MySQL-0f3d2e?style=for-the-badge&logo=mysql&logoColor=fff36b" alt="MySQL">
   <img src="https://img.shields.io/badge/PostgreSQL-0f3d2e?style=for-the-badge&logo=postgresql&logoColor=fff36b" alt="PostgreSQL">
 </p>
@@ -70,6 +73,13 @@
   <img src="https://img.shields.io/badge/GitHub-0f3d2e?style=for-the-badge&logo=github&logoColor=fff36b" alt="GitHub">
   <img src="https://img.shields.io/badge/Docker-0f3d2e?style=for-the-badge&logo=docker&logoColor=fff36b" alt="Docker">
   <img src="https://img.shields.io/badge/Google_Cloud-0f3d2e?style=for-the-badge&logo=googlecloud&logoColor=fff36b" alt="Google Cloud">
+  <img src="https://img.shields.io/badge/Vitest-0f3d2e?style=for-the-badge&logo=vitest&logoColor=fff36b" alt="Vitest">
+</p>
+
+<p align="center"><b>AUDIO AND AI</b></p>
+<p align="center">
+  <img src="https://img.shields.io/badge/Web_Audio_API-0f3d2e?style=for-the-badge&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI%2BPHBhdGggZmlsbD0iI2ZmZjM2YiIgZD0iTTIgMTBoMi41djRIMnpNNi41IDZoMi41djEySDYuNXpNMTEgMi41aDIuNXYxOUgxMXpNMTUuNSA3aDIuNXYxMGgtMi41ek0yMCAxMGgyLjV2NEgyMHoiLz48L3N2Zz4%3D" alt="Web Audio API">
+  <img src="https://img.shields.io/badge/PyTorch-0f3d2e?style=for-the-badge&logo=pytorch&logoColor=fff36b" alt="PyTorch">
 </p>
 
 <p align="center"><b>CREATIVE</b></p>
