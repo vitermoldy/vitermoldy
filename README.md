@@ -94,6 +94,16 @@
 <table>
 <tr>
 <td width="50%" valign="top">
+  <img src="assets/pixel/card-evit.svg" width="100%" alt="eVit, React, WebGL and PyTorch">
+  <br>A layer-based photo editor in the browser: masks, blend modes, curves and levels, five kinds of selection, healing, clone stamp, text and export to PSD. Its AI picks objects, removes backgrounds and objects, and fills or extends a photo with SDXL, all on the laptop's own GPU, so no photo leaves the machine. Still in development, so the repository is private for now.
+</td>
+<td width="50%" valign="top">
+  <img src="assets/pixel/card-convertion.svg" width="100%" alt="Convertion, React, Python and PyMuPDF">
+  <br>A PDF toolkit that runs on my own laptop, with 34 tools: merge, split, compress, OCR, sign, redact, compare, Word, Excel and PowerPoint to PDF and back, plus summaries and layout-keeping translation from a local Qwen model and a background remover for photos. Still in development, so the repository is private for now.
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
   <img src="assets/pixel/card-mixer.svg" width="100%" alt="Mixer Simulation, Web Audio and PyTorch">
   <br>A mixing desk to learn on, with four consoles that work like a Midas M32, a Yamaha TF, an Allen &amp; Heath SQ and an analog board. Load stems or split any song into vocals, drums, bass and the rest with Demucs, then set gain, EQ, gate, compressor, sends and faders while nine lessons read your meters. Still in development, so the repository is private for now.
 </td>
