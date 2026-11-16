@@ -396,7 +396,7 @@ def viygo_art(w, h):
     return img
 
 
-def card(name, title, stack, picture):
+def card(name, title, stack, picture, colours=40):
     W, H = 200, 136
     TW, TH = 94, 50  # picture cells, drawn at 2 units each
     c = Canvas()
@@ -407,7 +407,7 @@ def card(name, title, stack, picture):
     assert 8 + T5.width(stack) <= W - 8, stack
     over.text(8, 125, title, HOT, 2)
     over.text(8, 133, stack, PALE)
-    href = pixelate(picture, TW, TH)
+    href = pixelate(picture, TW, TH, colours)
     body = c.svg() + f'<image href="{href}" x="6" y="6" width="{TW * 2}" height="{TH * 2}" preserveAspectRatio="none" image-rendering="pixelated"/>' + over.svg()
     write(name, document(W, H, 4, f'{title}: {stack}', body))
 
@@ -1116,6 +1116,14 @@ def main():
     # the 3D lab bench with the interface and labels hidden, camera two steps closer, at 1600 x 1000
     card('card-netsim.svg', 'NETWORK SIMULATION', 'THREE.JS + MYSQL',
          Image.open(SRC / 'netsim-bench.jpg').crop((70, 160, 1060, 687)))
+    # the editor at 1600 x 1000 after "Hapus background": the CloudStead render with its sky masked away, the
+    # layer and its mask in the panel on the right; cropped above the status bar
+    card('card-evit.svg', 'EVIT', 'REACT + WEBGL + PYTORCH',
+         Image.open(SRC / 'evit-editor.jpg').crop((0, 0, 1600, 851)))
+    # three rows of the home page's tool grid at 1600 x 1000; 40 colours turn the orange and green icons purple,
+    # so this one keeps 128
+    card('card-convertion.svg', 'CONVERTION', 'REACT + PYTHON + PYMUPDF',
+         Image.open(SRC / 'convertion-grid.jpg').crop((200, 100, 1400, 738)), colours=128)
     footer()
 
 
