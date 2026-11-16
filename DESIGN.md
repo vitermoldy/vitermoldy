@@ -47,14 +47,20 @@ the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, s
 Lanskara (LandingPage-sitev1) and CloudStead share the last row: Lanskara from its hero at 1440
 (`tools/src/lanskara-hero.jpg`), CloudStead from its finished island at sunset without the interface
 (`tools/src/cloudstead-island.jpg`, the `?pratinjau=1400` view at 1600 x 1000). The two newest share the top
-row, so the table is a whole 2 x 5 grid. Since 15 November 2026 that row is Mixer Simulation on the left, the
+row, so the table is a whole 2 x 6 grid. Since 17 November 2026 that row is eVit (repository Editing-Platform) on
+the left, its editor after "Hapus background" with the CloudStead render's sky masked away and the layer mask in
+the panel (`tools/src/evit-editor.jpg`, cropped above the status bar), and Convertion (repository Convertion-Web)
+on the right, three rows of its home page's tool grid (`tools/src/convertion-grid.jpg`), both shot at 1600 x 1000.
+The Convertion card keeps 128 colours instead of the usual 40, because 40 turn its orange and green icons purple
+(`card(..., colours=128)`). The second row is Mixer Simulation on the left, the
 Analog 16 console while its demo song plays, all 16 strips from GAIN down to AUX 2 so the red, green and yellow
 rows of knobs read as a mixer at 94 x 50 (`tools/src/mixer-analog.jpg`), and Network Simulation on the right,
 its 3D lab bench with the interface and device labels hidden and the camera two steps closer
 (`tools/src/netsim-bench.jpg`), both shot at 1600 x 1000. The owner's rule for private repositories (15 November
-2026): name them as in development, in English. Mixer-Simulation is private, so its card follows the Nyxborne
-pattern below (no link, a closing note that the repository is private for now); when it goes public, wrap the
-picture in a link and end the text with a Repo link like the others. The second row holds Nyxborne on the left,
+2026): name them as in development, in English. Editing-Platform, Convertion-Web and Mixer-Simulation are
+private, so their cards follow the Nyxborne pattern below (no link, a closing note that the repository is private
+for now); when one goes public, wrap its picture in a link and end the text with a Repo link like the others. The
+third row holds Nyxborne on the left,
 and Agentic Factory (idle-Agent-factory) on the right, the Studio Video machine with the game interface hidden (`tools/src/agentic-factory.jpg`, 1600 x 852),
 cropped to its five stations. The Nyxborne card shows v2 (repository Nyxborn-v2), which is pixel art itself, so
 its picture is not reduced at all: one frame of the arena canvas at art resolution (`tools/src/nyxborne-v2-arena.png`,
