@@ -1124,6 +1124,13 @@ def main():
     # so this one keeps 128
     card('card-convertion.svg', 'CONVERTION', 'REACT + PYTHON + PYMUPDF',
          Image.open(SRC / 'convertion-grid.jpg').crop((200, 100, 1400, 738)), colours=128)
+    # Kaiten Hinoki, the first restaurant, busy (6 chefs, 16 seats) with the game interface hidden, at
+    # 1600 x 1000; cropped to the belt, the chefs in the middle and the customers on both straights
+    card('card-foodrolling.svg', 'FOODROLLING', 'REACT + CANVAS + ZUSTAND',
+         Image.open(SRC / 'foodrolling-kaiten.jpg').crop((120, 180, 1480, 903)), colours=64)
+    # the page's own link picture (1200 x 630), cropped inside the stage frame to the voxel portrait and its sun
+    card('card-viterportofolio.svg', 'VITERPORTOFOLIO', 'THREE.JS + REACT',
+         Image.open(SRC / 'viterportofolio-share.png').crop((550, 175, 1136, 487)))
     footer()
 
 
