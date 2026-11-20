@@ -94,6 +94,16 @@
 <table>
 <tr>
 <td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/FoodRolling"><img src="assets/pixel/card-foodrolling.svg" width="100%" alt="FoodRolling, React, canvas and Zustand"></a>
+  <br>An idle restaurant game on a conveyor belt: chefs cook in the middle, plates roll past the stools and customers pay for every plate they empty. Raise income, speed, chefs and seats, then buy the next restaurant, six in all from a Japanese kaiten bar to a Paris bistro, each room drawn in its country's style. <a href="https://github.com/vitermoldy/FoodRolling">Repo</a>
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/viterPortofolio"><img src="assets/pixel/card-viterportofolio.svg" width="100%" alt="viterPortofolio, three.js and React"></a>
+  <br>This profile in 3D: the pixel-art portrait stands up as 4,096 blocks, every contribution rises into a skyline in GitHub's own shades, and each project card turns into a relief you can turn and press. <a href="https://github.com/vitermoldy/viterPortofolio">Repo</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
   <img src="assets/pixel/card-evit.svg" width="100%" alt="eVit, React, WebGL and PyTorch">
   <br>A layer-based photo editor in the browser: masks, blend modes, curves and levels, five kinds of selection, healing, clone stamp, text and export to PSD. Its AI picks objects, removes backgrounds and objects, and fills or extends a photo with SDXL, all on the laptop's own GPU, so no photo leaves the machine. Still in development, so the repository is private for now.
 </td>
