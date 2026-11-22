@@ -94,6 +94,16 @@
 <table>
 <tr>
 <td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/SongPlaylist-ForLearning"><img src="assets/pixel/card-songplaylist.svg" width="100%" alt="SongPlaylist, React, YouTube and MySQL"></a>
+  <br>A study playlist dealt like a deck of cards: paste YouTube links and every song becomes a card, the top card plays its video, and changing songs deals the next card in. Save the list as named playlists, kept with your account in MySQL. The card motion comes from Aakash Mehra's Project Deck. <a href="https://github.com/vitermoldy/SongPlaylist-ForLearning">Repo</a>
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/CoffeeStatus"><img src="assets/pixel/card-coffeestatus.svg" width="100%" alt="CoffeeStatus, React, SVG and Motion"></a>
+  <br>A drink menu that pours: pick a coffee, juice, tea or soda, the glass on stage is tossed away, a new one slides in and the drink fills layer by layer while the recipe card counts every millilitre. Every cup and liquid is SVG drawn in code, on Aakash Mehra's coffee-pour-menu. <a href="https://github.com/vitermoldy/CoffeeStatus">Repo</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
   <a href="https://github.com/vitermoldy/FoodRolling"><img src="assets/pixel/card-foodrolling.svg" width="100%" alt="FoodRolling, React, canvas and Zustand"></a>
   <br>An idle restaurant game on a conveyor belt: chefs cook in the middle, plates roll past the stools and customers pay for every plate they empty. Raise income, speed, chefs and seats, then buy the next restaurant, six in all from a Japanese kaiten bar to a Paris bistro, each room drawn in its country's style. <a href="https://github.com/vitermoldy/FoodRolling">Repo</a>
 </td>
@@ -119,13 +129,13 @@
 </td>
 <td width="50%" valign="top">
   <a href="https://github.com/vitermoldy/Network-Simulation"><img src="assets/pixel/card-netsim.svg" width="100%" alt="Network Simulation, three.js and MySQL"></a>
-  <br>A 3D network lab in the spirit of Packet Tracer: follow one web request from a laptop through a switch, routers and a DNS server, plug and pull cables, switch a router off and watch the others find a new path, with an IOS-style CLI and runs kept in MySQL. <a href="https://github.com/vitermoldy/Network-Simulation">Repo</a>
+  <br>A 3D network lab in the spirit of Packet Tracer: follow one web request from a laptop through a switch, routers and a DNS server, plug and pull cables, switch a router off and watch the others find a new path, with an IOS-style CLI and your runs and saved designs kept with your account in MySQL. <a href="https://github.com/vitermoldy/Network-Simulation">Repo</a>
 </td>
 </tr>
 <tr>
 <td width="50%" valign="top">
   <img src="assets/pixel/card-nyxborne.svg" width="100%" alt="Nyxborne v2, React, canvas and MySQL">
-  <br>A dark-fantasy summoner RPG in pixel art. The hunter wears whatever you equip, 36 monsters walk and strike, and every sprite is painted by code. Beaten monsters rise as Nyxborne and stack into colonies hundreds strong, across 124 sub-gates from rank E to Monarch, with match results kept in MySQL. Still in development, so the repository is private for now.
+  <br>A dark-fantasy summoner RPG in pixel art. The hunter wears whatever you equip, 36 monsters walk and strike, and every sprite is painted by code. Beaten monsters rise as Nyxborne and stack into colonies hundreds strong, across 124 sub-gates from rank E to Monarch, with every match result kept with the hunter's account in MySQL. Still in development, so the repository is private for now.
 </td>
 <td width="50%" valign="top">
   <a href="https://github.com/vitermoldy/idle-Agent-factory"><img src="assets/pixel/card-agentic-factory.svg" width="100%" alt="Agentic Factory, three.js and React"></a>
