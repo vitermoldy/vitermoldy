@@ -1131,6 +1131,14 @@ def main():
     # the page's own link picture (1200 x 630), cropped inside the stage frame to the voxel portrait and its sun
     card('card-viterportofolio.svg', 'VITERPORTOFOLIO', 'THREE.JS + REACT',
          Image.open(SRC / 'viterportofolio-share.png').crop((550, 175, 1136, 487)))
+    # a latte being made at 1600 x 1000: the espresso stream falling into the tall glass, with the drink menu
+    # beside it so the card reads as a menu that pours (the milk stage is too pale on cream at 94 x 50)
+    card('card-coffeestatus.svg', 'COFFEESTATUS', 'REACT + SVG + MOTION',
+         Image.open(SRC / 'coffeestatus-latte.jpg').crop((330, 104, 1272, 605)), colours=64)
+    # the deck at 1600 x 1000 with the sign-in screen closed: the top card's cover and the cut-out corner that
+    # holds the song title and its play button, the deck's own mark
+    card('card-songplaylist.svg', 'SONGPLAYLIST', 'REACT + YOUTUBE + MYSQL',
+         Image.open(SRC / 'songplaylist-deck.jpg').crop((135, 182, 1465, 889)))
     footer()
 
 
