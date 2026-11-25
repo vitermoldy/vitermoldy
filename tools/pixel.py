@@ -1139,6 +1139,15 @@ def main():
     # holds the song title and its play button, the deck's own mark
     card('card-songplaylist.svg', 'SONGPLAYLIST', 'REACT + YOUTUBE + MYSQL',
          Image.open(SRC / 'songplaylist-deck.jpg').crop((135, 182, 1465, 889)))
+    # v2 at 1600 x 1000 with the interface hidden: Ilyra and her staff on the shore of Danau Hitam before the
+    # Hydra, all five necks up; cropped from the top so the heads stay whole
+    card('card-witchrpg-v2.svg', 'WITCHRPG V2', 'THREE.JS + MYSQL',
+         Image.open(SRC / 'witchrpg-v2-hydra.png').crop((40, 0, 1600, 830)), colours=64)
+    # v1 in first person at 1600 x 1000, interface hidden, at the start of a Rift: cropped to the Rift torn
+    # open in the magenta sky between the city's towers, with its floating rocks (the hands below are lost at
+    # 94 x 50); kept at 128 colours, since 64 merge the tear into the dusk
+    card('card-witchrpg.svg', 'WITCHRPG', 'THREE.JS + MYSQL',
+         Image.open(SRC / 'witchrpg-rift.png').crop((380, 60, 1300, 549)), colours=128)
     footer()
 
 
