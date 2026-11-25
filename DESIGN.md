@@ -47,7 +47,15 @@ the owner's real screenshots, reduced to pixels; Viygo has no screenshot here, s
 Lanskara (LandingPage-sitev1) and CloudStead share the last row: Lanskara from its hero at 1440
 (`tools/src/lanskara-hero.jpg`), CloudStead from its finished island at sunset without the interface
 (`tools/src/cloudstead-island.jpg`, the `?pratinjau=1400` view at 1600 x 1000). The two newest share the top
-row, so the table is a whole 2 x 8 grid. Since 22 November 2026 that row is SongPlaylist-ForLearning on the left,
+row, so the table is a whole 2 x 9 grid. Since 26 November 2026 that row is WitchRPG v2 on the left, Ilyra and her
+staff on the shore of Danau Hitam before the Hydra with all five necks up, the interface hidden
+(`tools/src/witchrpg-v2-hydra.png`, 1600 x 1000, cropped from the top so the heads stay whole, 64 colours), with a
+second link to its Easy version (WitchRPG-v2-Easy-, where every Umbra Rite succeeds), and WitchRPG (v1) on the
+right, the first-person Rift opening in the magenta sky between the city towers (`tools/src/witchrpg-rift.png`,
+1600 x 1000, cropped to the tear; 128 colours, because 64 merge the tear into the dusk, and the hands are lost at
+94 x 50). All three repositories are public; the Easy one was still empty on GitHub that day, so push it before the
+profile, or its link opens an empty repository.
+The second row is SongPlaylist-ForLearning on the left,
 its deck with the sign-in screen closed: the top card's cover and the cut-out corner holding the song title and its
 play button (`tools/src/songplaylist-deck.jpg`, 1600 x 1000, cropped to the card), and CoffeeStatus on the right,
 a latte being made with the espresso stream falling into the tall glass beside the drink menu
@@ -55,19 +63,19 @@ a latte being made with the espresso stream falling into the tall glass beside t
 cream at 94 x 50, and the card keeps 64 colours). The SongPlaylist picture is the song playing at the time, so the
 cover in it is a YouTube video frame, reduced to 94 x 50. Both repositories are public, and both texts credit
 Aakash Mehra, whose components (Project Deck, coffee-pour-menu) the two apps are built on.
-The second row is FoodRolling on the left, its first
+The third row is FoodRolling on the left, its first
 restaurant (Kaiten Hinoki) busy with six chefs and sixteen seats, the game interface and the coin numbers hidden
 (`tools/src/foodrolling-kaiten.jpg`, 1600 x 1000, cropped to the belt), and viterPortofolio on the right, the voxel
 portrait and its sun from the page's own link picture (`tools/src/viterportofolio-share.png`, 1200 x 630, cropped
 inside the stage frame). The FoodRolling card keeps 64 colours, because 40 turn the customers' blue and teal shirts
 brown. Both repositories are public, so both cards link to them; viterPortofolio's GitHub Pages address answered
 404 on 20 November 2026, so its card links the repository only; add the site link once Pages is on.
-The third row is eVit (repository Editing-Platform) on
+The fourth row is eVit (repository Editing-Platform) on
 the left, its editor after "Hapus background" with the CloudStead render's sky masked away and the layer mask in
 the panel (`tools/src/evit-editor.jpg`, cropped above the status bar), and Convertion (repository Convertion-Web)
 on the right, three rows of its home page's tool grid (`tools/src/convertion-grid.jpg`), both shot at 1600 x 1000.
 The Convertion card keeps 128 colours instead of the usual 40, because 40 turn its orange and green icons purple
-(`card(..., colours=128)`). The fourth row is Mixer Simulation on the left, the
+(`card(..., colours=128)`). The fifth row is Mixer Simulation on the left, the
 Analog 16 console while its demo song plays, all 16 strips from GAIN down to AUX 2 so the red, green and yellow
 rows of knobs read as a mixer at 94 x 50 (`tools/src/mixer-analog.jpg`), and Network Simulation on the right,
 its 3D lab bench with the interface and device labels hidden and the camera two steps closer
