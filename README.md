@@ -94,6 +94,16 @@
 <table>
 <tr>
 <td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/WitchRPG-v2"><img src="assets/pixel/card-witchrpg-v2.svg" width="100%" alt="WitchRPG v2, three.js and MySQL"></a>
+  <br>Crimson Sovereign: Hutan, a third-person action RPG in an open forest valley. Block, parry and execute with a staff, bend reality with Chaos magic and raise the fallen into a shadow army of hundreds, then fly across five zones to a three-phase Hydra and six more bosses, with your witch kept with your account in MySQL. Every creature was blocked out in Blender first. <a href="https://github.com/vitermoldy/WitchRPG-v2">Repo</a>, and an <a href="https://github.com/vitermoldy/WitchRPG-v2-Easy-">Easy</a> version where every fallen enemy rises.
+</td>
+<td width="50%" valign="top">
+  <a href="https://github.com/vitermoldy/WitchRPG"><img src="assets/pixel/card-witchrpg.svg" width="100%" alt="WitchRPG, three.js and MySQL"></a>
+  <br>Crimson Sovereign, a first-person witch RPG in the browser: the left hand bends reality with Chaos magic, the right raises fallen enemies into an army of shadows. Close Rifts across five tiers, fly over an open city and bring down The Hollow Warden in its three phases, with your witch and Rift history kept with your account in MySQL. <a href="https://github.com/vitermoldy/WitchRPG">Repo</a>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
   <a href="https://github.com/vitermoldy/SongPlaylist-ForLearning"><img src="assets/pixel/card-songplaylist.svg" width="100%" alt="SongPlaylist, React, YouTube and MySQL"></a>
   <br>A study playlist dealt like a deck of cards: paste YouTube links and every song becomes a card, the top card plays its video, and changing songs deals the next card in. Save the list as named playlists, kept with your account in MySQL. The card motion comes from Aakash Mehra's Project Deck. <a href="https://github.com/vitermoldy/SongPlaylist-ForLearning">Repo</a>
 </td>
